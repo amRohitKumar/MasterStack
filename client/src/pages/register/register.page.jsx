@@ -1,4 +1,7 @@
-import * as React from "react";
+import {useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { registerUser } from "../../features/user/userSlice";
 import {
   Avatar,
   Button,
@@ -20,22 +23,46 @@ import {
 } from "../../icons/icons";
 
 const Register = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const user = useSelector(store => store.user.user);
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    }
+  }, [user]);
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      teamName: data.get("teamName"),
+    const teamObj = {
+      teamName: data.get("teamName").trim(),
       password: data.get("password"),
-      name1: data.get("name1"),
-      email1: data.get("email1"),
-      clgName1: data.get("clgName1"),
-      name2: data.get("name2"),
-      email2: data.get("email2"),
-      clgName2: data.get("clgName2"),
-      name3: data.get("name2"),
-      email3: data.get("email2"),
-      clgName3: data.get("clgName3"),
-    });
+      members: [
+        {
+          name: data.get("name1").trim(),
+          email: data.get("email1").trim(),
+          clgName: data.get("clgName1").trim(),
+        },
+        {
+          name: data.get("name2").trim(),
+          email: data.get("email2").trim(),
+          clgName: data.get("clgName2").trim(),
+        },
+        {
+          name: data.get("name3").trim(),
+          email: data.get("email3").trim(),
+          clgName: data.get("clgName3").trim(),
+        },
+      ],
+    };
+    // logic for validation of team
+    if(!teamObj.teamName || !teamObj.password) return;
+    dispatch(registerUser(teamObj));
   };
 
   return (

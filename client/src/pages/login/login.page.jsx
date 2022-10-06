@@ -1,4 +1,8 @@
-import * as React from "react";
+import {useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { loginUser } from "../../features/user/userSlice";
+
 import {
   Button,
   TextField,
@@ -17,13 +21,28 @@ import {
 } from "../../icons/icons";
 
 const LogIn = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const user = useSelector(store => store.user.user);
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    }
+  }, [user]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
-    console.log({
-      teamName: data.get("teamName"),
+    const teamObj = {
+      teamName: data.get("teamName").trim(),
       password: data.get("password"),
-    });
+    };
+    if(!teamObj.teamName || !teamObj.password) return;
+    dispatch(loginUser(teamObj));
   };
 
   return (

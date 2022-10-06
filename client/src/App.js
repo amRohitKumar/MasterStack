@@ -1,8 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CssBaseline } from "@mui/material";
+import { ToastContainer } from "react-toastify";
 
 import { ProtectedRoutes } from "./components";
-import { LogIn, Register, SharedLayout } from "./pages";
+import { LogIn, Register, Dashboard, SharedLayout } from "./pages";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function App() {
   return (
@@ -20,11 +23,13 @@ function App() {
           }
         >
           {/* OTHER PROTECTED ROUTES */}
+          <Route path="/dashboard" element = {<Dashboard />} />
         </Route>
 
         {/* ERROR PAGE */}
         {/* <Route exact path="*" element={<Error />}></Route> */}
       </Routes>
+      <ToastContainer position="top-center" />
     </BrowserRouter>
   );
 }

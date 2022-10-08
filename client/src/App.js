@@ -6,6 +6,7 @@ import { ProtectedRoutes } from "./components";
 import { LogIn, Register, Dashboard, SharedLayout } from "./pages";
 import "react-toastify/dist/ReactToastify.css";
 import Items from "./pages/items/items.page";
+import AddItem from "./pages/items/addItem.page";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route exact path="/login" element={<LogIn />}></Route>
         <Route exact path="/register" element={<Register />}></Route>
+        <Route exact path="/addItem" element={<AddItem />}></Route>
         <Route
           path="/"
           element={

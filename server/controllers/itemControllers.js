@@ -1,5 +1,5 @@
 const User = require("../models/user");
-
+const Item =require("../models/items");
 const start = async(req,res) => {
 
 
@@ -44,5 +44,13 @@ const submit = async(req,res) => {
         return res.status(400).send({ msg: "Server Error" });
     }
 }
-
-module.exports = {start, submit};
+const addItem = async(req,res) => {
+    try{
+        const item = req.body;
+        const newItem= Item.create(item);
+        return res.status(200).send({ msg: "Item Added"});
+    }catch(e){
+        return res.status(400).send({ msg: "Server Error" });
+    }
+}
+module.exports = {start, submit , addItem};

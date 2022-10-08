@@ -11,7 +11,7 @@ const start = async(req,res) => {
         }
         user.status=1;
         user.startedAt=Date.now();
-        user.endsAt=Date.parse(user.startedAt)+60*60*1000;
+        user.endsAt=Date.parse(user.startedAt)+2*60*1000;
         await user.save();
         return res.status(200).json({user});
     }catch(e){
@@ -53,4 +53,24 @@ const addItem = async(req,res) => {
         return res.status(400).send({ msg: "Server Error" });
     }
 }
-module.exports = {start, submit , addItem};
+
+const fetchItem = async(req,res) => {
+    try {
+        const items = await Item.find({});
+        return res.status(200).json({items : items.map(item => {
+
+            return {
+                id: item._id.toString(),
+                name: item.name,
+                parent: item.parent,
+                cost: item.cost,
+                points: item.points
+            }
+           
+        })});
+        
+    } catch (error) {
+        return res.status(400).send({ msg: "Server Error" });
+    }
+}
+module.exports = {start, submit , addItem, fetchItem};

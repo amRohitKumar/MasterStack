@@ -33,13 +33,14 @@ const userSlice = createSlice({
       removeTokenFromLocalStorage();
       toast.success("Logout Successfully");
     },
-    addItem: (state, payload) => {
-
+    addItem: (state, {payload}) => {
+      
+      console.log(payload.cost)
       if(payload.cost <= state.user.amount){
-        state.items = {
-          ...state.items,
+        state.user.items = [
+          ...state.user.items,
           payload
-        };
+        ];
         state.user.amount-=payload.cost;
         state.user.points+=payload.points;
         addUserToLocalStorage(state.user);
@@ -50,9 +51,9 @@ const userSlice = createSlice({
         toast.error("Insufficient Amount");
       }
     },
-    removeItem: (state,payload) => {
+    removeItem: (state,{payload}) => {
 
-      state.items=state.items.filter(item=> item.id!=payload.id);
+      state.user.items=state.user.items.filter(item=> item.id !== payload.id);
       state.user.amount+=payload.cost;
       state.user.points-=payload.points;
       addUserToLocalStorage(state.user);

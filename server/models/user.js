@@ -41,8 +41,16 @@ const UserSchema = new Schema({
         required: true,
       },
       parent: {
-        type: String,
+        type: Number,
         required: true,
+      },
+      cost: {
+        type: Number,
+        required: true,
+      },
+      id: {
+        type: String,
+        required: true
       }
     }
   ],

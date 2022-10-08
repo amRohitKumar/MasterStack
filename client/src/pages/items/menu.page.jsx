@@ -8,21 +8,25 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 const list = [
     {
+        id: 1,
         name:  "Appetizer",
         description: "Yummy",
         image: "https://m.economictimes.com/thumb/msid-89885004,width-1200,height-900,resizemode-4,imgsize-137412/healthy-food_think.jpg",
     },
     {
+        id: 2,
         name:  "Salad",
         description: "Yummy",
         image: "https://m.economictimes.com/thumb/msid-89885004,width-1200,height-900,resizemode-4,imgsize-137412/healthy-food_think.jpg",
     },
     {
+        id: 3,
         name:  "Main Course",
         description: "Yummy",
         image: "https://m.economictimes.com/thumb/msid-89885004,width-1200,height-900,resizemode-4,imgsize-137412/healthy-food_think.jpg",
     },
     {
+        id: 4,
         name:  "Dessert",
         description: "Yummy",
         image: "https://m.economictimes.com/thumb/msid-89885004,width-1200,height-900,resizemode-4,imgsize-137412/healthy-food_think.jpg",
@@ -34,13 +38,13 @@ const Menu = ({handleOption}) => {
     <>  
     <div>Menu</div>
     <Box sx={{ flexGrow: 1 }}>
-    <Grid contianer spacing={2}>
+    <Grid container spacing={2}>
 
   
-    {list.map((item,index)=><Grid item xs={4}>
+    {list.map((item,index)=><Grid item xs={6} key={item.id}>
 
         <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea onClick={()=>handleOption(index+1)}>
+      <CardActionArea onClick={()=>handleOption(item.id)}>
         <CardMedia
           component="img"
           height="140"

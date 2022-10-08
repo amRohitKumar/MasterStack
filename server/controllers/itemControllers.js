@@ -11,7 +11,7 @@ const start = async(req,res) => {
         }
         user.status=1;
         user.startedAt=Date.now();
-        user.endsAt=Date.parse(user.startedAt)+1*60*1000;
+        user.endsAt=Date.parse(user.startedAt)+60*60*1000;
         await user.save();
         return res.status(200).json({user});
     }catch(e){

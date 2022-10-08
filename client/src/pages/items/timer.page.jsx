@@ -29,19 +29,12 @@ export const Timer = () => {
 
     return (
         <div className="timer">
-            {Object.entries({
-                Days: time / DAY,
-                Hours: (time / HOUR) % 24,
-                Minutes: (time / MINUTE) % 60,
-                Seconds: (time / SECOND) % 60,
-            }).map(([label, value]) => (
-                <div key={label} className="col-4">
-                    <div className="box">
-                        <p>{`${Math.floor(value)}`.padStart(2, "0")}</p>
-                        <span className="text">{label}</span>
-                    </div>
-                </div>
-            ))}
+                        <span>{`${Math.floor((time/MINUTE)%60)}`.padStart(2, "0")}
+                        {" Mins : "}</span>
+                        <span>{`${Math.floor((time/SECOND)%60)}`.padStart(2, "0")}
+                        {" Sec"}</span>
+
+                   
         </div>
     );
 };

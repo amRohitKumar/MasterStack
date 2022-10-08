@@ -1,7 +1,15 @@
 import { Box, MenuItem, MenuList, Popover, Typography } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../../features/user/userSlice";
 
 export const AccountPopover = (props) => {
-  const { anchorEl, onClose, open, handleSignOut, ...other } = props;
+  const { anchorEl, onClose, open, ...other } = props;
+  const dispatch = useDispatch()
+  const handleSignOut = (e) => {
+    e.preventDefault();
+    
+    dispatch(logoutUser());
+  };
   return (
     <Popover
       anchorEl={anchorEl}

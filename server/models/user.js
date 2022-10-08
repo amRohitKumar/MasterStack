@@ -26,6 +26,45 @@ const UserSchema = new Schema({
       },
     },
   ],
+  status: {
+    type: Number,
+    default: 0,
+  },
+  items: [
+    {
+      name: {
+        type: String,
+        required: true,
+      },
+      points: {
+        type: Number,
+        required: true,
+      },
+      parent: {
+        type: String,
+        required: true,
+      }
+    }
+  ],
+  amount: {
+    type: Number,
+    default: 100000,
+  },
+  points: {
+    type: Number,
+    default: 0
+  },
+  startedAt: {
+    type: Date,
+  },
+  endsAt: {
+    type: Date,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  }
+
 });
 
 const User = mongoose.model("User", UserSchema);

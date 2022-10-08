@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import { ProtectedRoutes } from "./components";
 import { LogIn, Register, Dashboard, SharedLayout } from "./pages";
 import "react-toastify/dist/ReactToastify.css";
+import Items from "./pages/items/items.page";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         >
           {/* OTHER PROTECTED ROUTES */}
           <Route path="/dashboard" element = {<Dashboard />} />
+          <Route path="/items" element = {<Items/>} />
         </Route>
 
         {/* ERROR PAGE */}

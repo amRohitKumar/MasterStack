@@ -1,5 +1,5 @@
 import { Box, MenuItem, MenuList, Popover, Typography } from "@mui/material";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../features/user/userSlice";
 
 export const AccountPopover = (props) => {
@@ -10,6 +10,7 @@ export const AccountPopover = (props) => {
     
     dispatch(logoutUser());
   };
+  const name = useSelector(store => store.user.user.name)
   return (
     <Popover
       anchorEl={anchorEl}
@@ -32,7 +33,7 @@ export const AccountPopover = (props) => {
       >
         <Typography variant="overline">Account</Typography>
         <Typography color="text.secondary" variant="body2">
-          John Doe
+          {name}
         </Typography>
         {/* OTHER OPTIONS */}
       </Box>

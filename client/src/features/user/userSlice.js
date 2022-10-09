@@ -10,12 +10,14 @@ import {
   addTokenToLocalStorage,
   getTokenFromLocalStorage,
   removeTokenFromLocalStorage,
+  getStatusFromLocalStorage,
 } from "../../utils/localStorage";
 
 const initialState = {
   isLoading: false,
   user: getUserFromLocalStorage(),
   token: getTokenFromLocalStorage(),
+  loggedIn: getStatusFromLocalStorage(),
 };
 
 export const registerUser = createAsyncThunk("user/registerUser", registerUserThunk);
@@ -29,6 +31,7 @@ const userSlice = createSlice({
   reducers: {
     logoutUser: (state) => {
       state.user = null;
+      state.loggedIn = false;
       removeUserFromLocalStorage();
       removeTokenFromLocalStorage();
       toast.success("Logout Successfully");
@@ -45,7 +48,7 @@ const userSlice = createSlice({
         state.user.points+=payload.points;
         addUserToLocalStorage(state.user);
      
-        toast.success("Added Successfully");
+        toast.success("Added Successfully", {autoClose: 500});
       }
       else{
         toast.error("Insufficient Amount");
@@ -57,12 +60,8 @@ const userSlice = createSlice({
       state.user.amount+=payload.cost;
       state.user.points-=payload.points;
       addUserToLocalStorage(state.user);
-      toast.success("Removed Successfully");
+      toast.success("Removed Successfully", {autoClose: 500});
     },
-    inc: (state) =>{
-      state.user.points+=1;
-      toast.success("incremented");
-    }
   },
   extraReducers: {
     [registerUser.pending]: (state) => {
@@ -73,6 +72,7 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.token=token;
       state.user = user;
+      state.loggedIn = true;
       addUserToLocalStorage(user);
       addTokenToLocalStorage(token);
       toast.success(`Hello there ${user.name}`);
@@ -89,6 +89,7 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.token=token;
       state.user = user;
+      state.loggedIn = true;
       addUserToLocalStorage(user);
       addTokenToLocalStorage(token);
       toast.success(`Welcome back, ${user.name}`);
@@ -128,5 +129,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { logoutUser,addItem,removeItem,inc } = userSlice.actions;
+export const { logoutUser,addItem,removeItem } = userSlice.actions;
 export default userSlice.reducer;

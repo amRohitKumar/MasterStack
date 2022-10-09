@@ -19,8 +19,8 @@ const Stacks = () => {
     <div>Points: {user.points}</div>
     {
         user.items.map((item)=><li key={item.id}>
-        <div>{item.name} {item.cost} {item.points} 
-        <Button onClick={()=>handleRemove(item)}>Remove</Button></div>
+        {item.name} {item.cost} {item.points} 
+        <Button onClick={()=>handleRemove(item)}>Remove</Button>
         </li>)
     }
     </>

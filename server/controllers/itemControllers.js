@@ -11,7 +11,7 @@ const start = async(req,res) => {
         }
         user.status=1;
         user.startedAt=Date.now();
-        user.endsAt=Date.parse(user.startedAt)+2*60*1000;
+        user.endsAt=Date.parse(user.startedAt)+200*60*1000;
         await user.save();
         return res.status(200).json({user});
     }catch(e){
@@ -25,6 +25,7 @@ const submit = async(req,res) => {
         
 
         const userBody = req.body;
+        console.log(userBody)
         if(userBody.status==2){
             return res.status(400).send({ msg: "You can only submit once" });
         }
@@ -39,6 +40,7 @@ const submit = async(req,res) => {
             }
         });
         const user = await User.findById(userId);
+       // console.log(user)
         return res.status(200).json({user});
     }catch(e){
         return res.status(400).send({ msg: "Server Error" });

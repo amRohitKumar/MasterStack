@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import { AppBar, Avatar, Box, Toolbar, Button } from "@mui/material";
 import { UserCircle as UserCircleIcon } from "../../icons/user-circle";
 import { AccountPopover } from "./account-popover.component";
+import { useSelector } from "react-redux";
 
 const NavbarRoot = styled(AppBar)(({ theme }) => ({
   backgroundColor: "#c451d1",
@@ -15,6 +16,7 @@ export const Navbar = (props) => {
   const settingsRef = useRef(null);
   const [openAccountPopover, setOpenAccountPopover] = useState(false);
   const navigate = useNavigate();
+  const loggedIn = useSelector((store) => store.user.loggedIn);
 
   return (
     <>
@@ -36,22 +38,34 @@ export const Navbar = (props) => {
         >
           {/* NAVBAR LOGO */}
           <Box sx={{ flexGrow: 1 }} />
-          <Button
-            variant="text"
-            size="small"
+          {loggedIn ===false? (
+            <>
+              <Button
+                variant='text'
+                size='small'
+                sx={{ ml: 1, color: "#fff" }}
+                onClick={() => navigate("register")}
+              >
+                Register
+              </Button>
+              <Button
+                variant='text'
+                size='small'
+                sx={{ ml: 1, color: "#fff" }}
+                onClick={() => navigate("login")}
+              >
+                Login
+              </Button>
+              </>
+          ):(<Button
+            variant='text'
+            size='small'
             sx={{ ml: 1, color: "#fff" }}
-            onClick={() => navigate("register")}
+            onClick={() => navigate("/dashboard")}
           >
-            Register
-          </Button>
-          <Button
-            variant="text"
-            size="small"
-            sx={{ ml: 1, color: "#fff" }}
-            onClick={() => navigate("login")}
-          >
-            Login
-          </Button>
+            Dashboard
+          </Button>)}
+          
           <Avatar
             onClick={() => setOpenAccountPopover(true)}
             ref={settingsRef}
@@ -62,9 +76,9 @@ export const Navbar = (props) => {
               ml: 3,
               mr: 2,
             }}
-            src="/static/images/avatars/avatar_1.png"
+            src='/static/images/avatars/avatar_1.png'
           >
-            <UserCircleIcon fontSize="small" />
+            <UserCircleIcon fontSize='small' />
           </Avatar>
         </Toolbar>
       </NavbarRoot>

@@ -25,3 +25,10 @@ export const getTokenFromLocalStorage = () => {
   const token = result ? result : null;
   return token;
 };
+
+export const getStatusFromLocalStorage = () => {
+  const user = localStorage.getItem("user");
+  const token = localStorage.getItem("token");
+  const status = user && token ? true: false;
+  return status;
+}

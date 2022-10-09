@@ -3,8 +3,9 @@ import { useSelector } from "react-redux";
 
 const ProtectedRoutes = ({ children }) => {
   // LOGIN TO VERIFY USER
-  const user = useSelector(store => store.user.user);
-  if (!user) {
+  const loggedIn = useSelector(store => store.user.loggedIn);
+  console.log(2);
+  if (!loggedIn) {
     return <Navigate to="/login" />;
   }
   return children;

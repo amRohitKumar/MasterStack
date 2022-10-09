@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CssBaseline } from "@mui/material";
 import { ToastContainer } from "react-toastify";
-
+import Container from '@mui/material/Container';
 import { ProtectedRoutes } from "./components";
 import { LogIn, Register, Dashboard, SharedLayout } from "./pages";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,6 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <CssBaseline />
+      <Container maxWidth={false} sx={{maxWidth: '90%'}}>
       <Routes>
         <Route exact path="/login" element={<LogIn />}></Route>
         <Route exact path="/register" element={<Register />}></Route>
@@ -34,6 +35,7 @@ function App() {
         {/* <Route exact path="*" element={<Error />}></Route> */}
       </Routes>
       <ToastContainer position="top-center" />
+      </Container>
     </BrowserRouter>
   );
 }

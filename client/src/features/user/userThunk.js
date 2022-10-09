@@ -19,9 +19,10 @@ export const loginUserThunk = async (user, thunkAPI) => {
   }
 };
 
-export const submitItemsThunk = async(user ,thunkAPI) => {
+export const submitItemsThunk = async(_ ,thunkAPI) => {
   try {
-    
+    const user = thunkAPI.getState().user.user;
+    //console.log(user);
     const resp = await customFetch.post("/item/submit", user, authHeader(thunkAPI));
     return resp.data;
     

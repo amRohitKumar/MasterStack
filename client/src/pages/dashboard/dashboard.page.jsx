@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { startGame, submitItems } from "../../features/user/userSlice";
@@ -23,7 +22,7 @@ const Dashboard = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(submitItems(user));
+    dispatch(submitItems());
   }
 
   return (

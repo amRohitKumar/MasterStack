@@ -29,7 +29,7 @@ const LogIn = () => {
   useEffect(() => {
     if (user) {
       setTimeout(() => {
-        navigate("/dashboard");
+        navigate("/addItem");
       }, 1000);
     }
   }, [user]);

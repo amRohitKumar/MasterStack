@@ -10,6 +10,14 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  clgName: {
+    type: String,
+    required: true,
+  },
+  sponsors: {
+    type: Boolean,
+    required: true,
+  },
   members: [
     {
       name: {
@@ -20,10 +28,18 @@ const UserSchema = new Schema({
         type: String,
         required: true,
       },
-      clgName: {
-        type: String,
+      number: {
+        type: Number,
         required: true,
       },
+      year: {
+        type: Number,
+        required: true,
+      },
+      branch: {
+        type: String,
+        required: true,
+      }
     },
   ],
   status: {

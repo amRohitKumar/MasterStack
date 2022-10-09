@@ -4,12 +4,12 @@ const User = require("../models/user");
 
 const register = async (req, res) => {
   try {
-    const { teamName, password, members } = req.body;
+    const { teamName, password, clgName, sponsors, members } = req.body;
     const emailArr = members.map((member) => member.email);
+    
     //   checking for duplicate team name
     const resp1 = await User.findOne({ name: teamName });
     if (resp1) return res.status(400).send({ msg: "Team name already in use" });
-    // console.log(emailArr);
 
     // checking for duplicate members
     const resp2 = await User.find({ "members.email": { $in: emailArr } });
@@ -22,6 +22,8 @@ const register = async (req, res) => {
     const newUser = await User.create({
       name: teamName,
       password: hashedPassword,
+      clgName: clgName,
+      sponsors: sponsors,
       members: members,
     });
 

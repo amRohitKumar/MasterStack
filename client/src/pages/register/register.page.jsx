@@ -12,6 +12,8 @@ import {
   Typography,
   Container,
   InputAdornment,
+  FormControlLabel,
+  Checkbox,
 } from "@mui/material";
 
 import {
@@ -20,6 +22,9 @@ import {
   LockOutlinedIcon,
   NoEncryptionIcon,
   SchoolIcon,
+  LocalPhoneIcon,
+  CalendarMonthIcon,
+  DesignServicesIcon
 } from "../../icons/icons";
 
 const Register = () => {
@@ -31,7 +36,7 @@ const Register = () => {
   useEffect(() => {
     if (user) {
       setTimeout(() => {
-        navigate("/dashboard");
+        navigate("/addItem");
       }, 1000);
     }
   }, [user]);
@@ -42,31 +47,41 @@ const Register = () => {
     const teamObj = {
       teamName: data.get("teamName").trim(),
       password: data.get("password"),
+      clgName: data.get("clgName"),
+      sponsors: data.get("sponsors")==="on"?true:false,
+
       members: [
         {
           name: data.get("name1").trim(),
           email: data.get("email1").trim(),
-          clgName: data.get("clgName1").trim(),
+          number: data.get("phone1"),
+          year: data.get("year1").trim(),
+          branch: data.get("branch1").trim(),
         },
         {
           name: data.get("name2").trim(),
           email: data.get("email2").trim(),
-          clgName: data.get("clgName2").trim(),
+          number: data.get("phone2"),
+          year: data.get("year2").trim(),
+          branch: data.get("branch2").trim(),
         },
         {
           name: data.get("name3").trim(),
           email: data.get("email3").trim(),
-          clgName: data.get("clgName3").trim(),
+          number: data.get("phone3"),
+          year: data.get("year3").trim(),
+          branch: data.get("branch3").trim(),
         },
       ],
     };
+
     // logic for validation of team
     if(!teamObj.teamName || !teamObj.password) return;
     dispatch(registerUser(teamObj));
   };
 
   return (
-    <Container component="main" maxWidth="md">
+    <Container sx={{width: "100%"}}>
       <Box
         sx={{
           marginTop: 4,
@@ -86,7 +101,7 @@ const Register = () => {
             Team Details
           </Typography>
           <Grid container spacing={2} sx={{ mb: 2 }}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={4}>
               <TextField
                 size="small"
                 name="teamName"
@@ -104,7 +119,25 @@ const Register = () => {
                 }}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={4}>
+              <TextField
+                size="small"
+                name="clgName"
+                type="text"
+                required
+                fullWidth
+                label="College Name"
+                color="secondary"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SchoolIcon fontSize="small" />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={4}>
               <TextField
                 size="small"
                 name="password"
@@ -130,7 +163,7 @@ const Register = () => {
             1st Member (Teamleader)
           </Typography>
           <Grid container spacing={2} sx={{ mb: 2 }}>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={4} lg={3}>
               <TextField
                 size="small"
                 name="name1"
@@ -148,7 +181,7 @@ const Register = () => {
                 }}
               />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={4} lg={3}>
               <TextField
                 size="small"
                 name="email1"
@@ -166,19 +199,56 @@ const Register = () => {
                 }}
               />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={4} lg={2}>
               <TextField
                 size="small"
-                name="clgName1"
-                type="text"
+                name="phone1"
+                type="number"
                 required
                 fullWidth
-                label="College name"
+                label="Mobile Number"
                 color="secondary"
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <SchoolIcon fontSize="small" />
+                      <LocalPhoneIcon fontSize="small" />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={4} lg={2}>
+              <TextField
+                size="small"
+                name="year1"
+                type="number"
+                required
+                fullWidth
+                label="Pursuing Year"
+                color="secondary"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <CalendarMonthIcon fontSize="small" />
+                    </InputAdornment>
+                  ),
+                  inputProps: { min: 1, max: 5 }
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={4} lg={2}>
+              <TextField
+                size="small"
+                name="branch1"
+                type="text"
+                required
+                fullWidth
+                label="Branch"
+                color="secondary"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <DesignServicesIcon fontSize="small" />
                     </InputAdornment>
                   ),
                 }}
@@ -189,7 +259,7 @@ const Register = () => {
             2nd member
           </Typography>
           <Grid container spacing={2} sx={{ mb: 2 }}>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={4} lg={3}>
               <TextField
                 size="small"
                 name="name2"
@@ -207,7 +277,7 @@ const Register = () => {
                 }}
               />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={4} lg={3}>
               <TextField
                 size="small"
                 name="email2"
@@ -225,19 +295,56 @@ const Register = () => {
                 }}
               />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={4} lg={2}>
               <TextField
                 size="small"
-                name="clgName2"
-                type="text"
+                name="phone2"
+                type="number"
                 required
                 fullWidth
-                label="College name"
+                label="Mobile Number"
                 color="secondary"
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <SchoolIcon fontSize="small" />
+                      <LocalPhoneIcon fontSize="small" />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={4} lg={2}>
+              <TextField
+                size="small"
+                name="year2"
+                type="number"
+                required
+                fullWidth
+                label="Pursuing Year"
+                color="secondary"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <CalendarMonthIcon fontSize="small" />
+                    </InputAdornment>
+                  ),
+                  inputProps: { min: 1, max: 5 }
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={4} lg={2}>
+              <TextField
+                size="small"
+                name="branch2"
+                type="text"
+                required
+                fullWidth
+                label="Branch"
+                color="secondary"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <DesignServicesIcon fontSize="small" />
                     </InputAdornment>
                   ),
                 }}
@@ -248,7 +355,7 @@ const Register = () => {
             3rd member
           </Typography>
           <Grid container spacing={2} sx={{ mb: 2 }}>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={4} lg={3}>
               <TextField
                 size="small"
                 name="name3"
@@ -266,7 +373,7 @@ const Register = () => {
                 }}
               />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={4} lg={3}>
               <TextField
                 size="small"
                 name="email3"
@@ -284,26 +391,63 @@ const Register = () => {
                 }}
               />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={4} lg={2}>
               <TextField
                 size="small"
-                name="clgName3"
-                type="text"
+                name="phone3"
+                type="number"
                 required
                 fullWidth
-                label="College name"
+                label="Mobile Number"
                 color="secondary"
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <SchoolIcon fontSize="small" />
+                      <LocalPhoneIcon fontSize="small" />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={4} lg={2}>
+              <TextField
+                size="small"
+                name="year3"
+                type="number"
+                required
+                fullWidth
+                label="Pursuing Year"
+                color="secondary"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <CalendarMonthIcon fontSize="small" />
+                    </InputAdornment>
+                  ),
+                  inputProps: { min: 1, max: 5 }
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={4} lg={2}> 
+              <TextField
+                size="small"
+                name="branch3"
+                type="text"
+                required
+                fullWidth
+                label="Branch"
+                color="secondary"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <DesignServicesIcon fontSize="small" />
                     </InputAdornment>
                   ),
                 }}
               />
             </Grid>
           </Grid>
-
+          <FormControlLabel control={<Checkbox name="sponsors" defaultChecked />} label="I agree to share my details with sponsors for promotional purposes." />
           <Button
             type="submit"
             variant="contained"

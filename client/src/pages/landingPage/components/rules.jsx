@@ -1,37 +1,51 @@
-import styled from "@emotion/styled";
-import { Box, Grid, List, ListItem, useMediaQuery } from "@mui/material";
-import { Container } from "@mui/system";
-import rules from "../../../assets/rules.png";
-import HeadTypography from "./headTypography";
-import workflow from "../../../assets/workflow.jpeg";
-import React from "react";
+import React from 'react';
+import styled from '@emotion/styled';
+import {
+  Box,
+  Grid,
+  List,
+  ListItem,
+  useMediaQuery,
+  Divider,
+} from '@mui/material';
+import { Container } from '@mui/system';
+import rules from '../../../assets/rules.png';
+import HeadTypography from './headTypography';
+import workflow from '../../../assets/workflow.jpeg';
+
 const StyledListItem = styled(ListItem)(({ theme }) => ({
-  display: "list-item",
-  fontSize: "1.22rem",
-  fontWeight: "100",
+  display: 'list-item',
+  fontSize: '1.22rem',
+  fontWeight: '100',
+  textAlign: 'justify',
 }));
+
 const Rules = React.forwardRef((props, ref) => {
-  var match = useMediaQuery("(min-width:600px)");
+  var match = useMediaQuery('(min-width:600px)');
   return (
     <Container
       ref={ref}
       sx={
         match
           ? {
-              padding: "4rem",
+              paddingX: '4rem',
             }
           : {
-              padding: "3rem",
-              paddingX: "1rem",
+              // padding: '3rem',
+              paddingX: '1rem',
             }
       }
     >
-      <Grid container spacing={2}>
-        <Grid item sm={6} xs={12}>
-          <HeadTypography size={match} styles={{ color: "#8D9EF4" }}>
-            RULES
-          </HeadTypography>
-          <List sx={{ listStyleType: "disc", pl: 4 }}>
+      <HeadTypography
+        size={match}
+        styles={{ color: '#5457fa', fontSize: '3.5rem' }}
+      >
+        RULES
+      </HeadTypography>
+      <Divider variant="middle" />
+      <Grid container spacing={2} sx={{ margin: '2rem', textAlign: 'justify' }}>
+        <Grid item md={6} xs={12}>
+          <List sx={{ listStyleType: 'disc', pl: 4 }}>
             <StyledListItem>
               To be eligible for prizes, make sure you use the correct email
               address of the team leader and carry proper identification.
@@ -50,29 +64,35 @@ const Rules = React.forwardRef((props, ref) => {
         </Grid>
         <Grid
           item
-          sm={6}
+          md={6}
           sx={{
-            display: { xs: "none", sm: "flex" },
+            display: { xs: 'none', md: 'flex' },
           }}
         >
-          <Box component="img" sx={{ width: "100%" }} alt="Rules" src={rules} />
+          <Box component="img" sx={{ width: '100%' }} alt="Rules" src={rules} />
         </Grid>
+      </Grid>
+      <HeadTypography
+        size={match}
+        styles={{ color: '#5457fa', fontSize: '3.5rem' }}
+      >
+        WORKFLOW
+      </HeadTypography>
+      <Divider variant="middle" />
+      <Grid container spacing={2} sx={{ margin: '2rem' }}>
         <Grid
           item
-          sm={6}
+          md={6}
           sx={{
-            display: { xs: "none", sm: "flex" },
+            display: { xs: 'none', md: 'flex' },
           }}
         >
-          <Grid container justifyContent={"center"} alignItems={"center"}>
-            <img src={workflow} width="100%" maxHeight="37rem" />
+          <Grid container justifyContent={'center'} alignItems={'center'}>
+            <img src={workflow} width="100%" alt="Workflow" maxHeight="37rem" />
           </Grid>
         </Grid>
-        <Grid item sm={6} xs={12}>
-          <HeadTypography size={match} styles={{ color: "#FE7163" }}>
-            WORKFLOW
-          </HeadTypography>
-          <List sx={{ listStyleType: "disc", pl: 4 }}>
+        <Grid item md={6} xs={12}>
+          <List sx={{ listStyleType: 'disc', pl: 4 }}>
             <StyledListItem>
               You will have to register yourselves on the website that will be
               provided soon.

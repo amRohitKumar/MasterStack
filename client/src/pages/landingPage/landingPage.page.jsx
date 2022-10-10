@@ -1,9 +1,10 @@
-import { Fragment, useRef } from "react";
-import Header from "./components/Header";
-import CountDown from "./components/countdown";
-import Rules from "./components/rules";
-import About from "./components/about";
-import MyTimeLine from "./components/timeline";
+import { Fragment, useRef } from 'react';
+import Header from './components/Header';
+import CountDown from './components/countdown';
+import Rules from './components/rules';
+import About from './components/about';
+import MyTimeLine from './components/timeline';
+import { Footer } from '../../components';
 
 const LandingPage = () => {
   const about = useRef(null);
@@ -17,6 +18,7 @@ const LandingPage = () => {
       <About ref={about} />
       <Rules ref={rules} />
       <MyTimeLine ref={timeline} />
+      <Footer />
     </Fragment>
   );
 };

@@ -1,40 +1,46 @@
-import { Typography, useMediaQuery } from "@mui/material";
-import { Box, Container } from "@mui/system";
-import React from "react";
-import HeadTypography from "./headTypography";
+import { Typography, useMediaQuery, Divider } from '@mui/material';
+import { Box, Container } from '@mui/system';
+import React from 'react';
+import HeadTypography from './headTypography';
 const About = React.forwardRef((props, ref) => {
-  const match = useMediaQuery("(min-width:600px)");
+  const match = useMediaQuery('(min-width:600px)');
   return (
     <Box
       ref={ref}
       sx={{
-        backgroundColor: "#F8FBFB",
-        width: "100%",
-        height: "auto",
+        // backgroundColor: '#F8FBFB',
+        width: '100%',
+        height: 'auto',
       }}
     >
       <Container
         sx={
           match
             ? {
-                padding: "4rem",
+                padding: '4rem',
               }
             : {
-                padding: "3rem",
+                padding: '3rem',
               }
         }
       >
-        <HeadTypography size={match} styles={{}}>
-          About this event
+        <HeadTypography
+          size={match}
+          styles={{ color: '#5457fa', fontSize: '3.5rem' }}
+        >
+          ABOUT
         </HeadTypography>
+        <Divider variant="middle" />
         <Typography
           sx={
             match
               ? {
-                  fontWeight: "50",
-                  fontSize: "1.22rem",
+                  fontWeight: '50',
+                  fontSize: '1.22rem',
+                  margin: '2rem',
+                  textAlign: 'justify',
                 }
-              : ""
+              : { margin: '2rem', textAlign: 'justify' }
           }
         >
           MasterStack is an event where teams of size 3 will be formed and

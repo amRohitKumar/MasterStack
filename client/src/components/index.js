@@ -1,4 +1,5 @@
 import Navbar from "./navbar/navbar.component";
 import ProtectedRoutes from "./protected-routes/protected-routes.component";
+import Footer from "./footer";
 
-export {Navbar, ProtectedRoutes};
+export {Navbar, ProtectedRoutes, Footer};

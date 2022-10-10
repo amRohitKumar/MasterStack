@@ -31,15 +31,15 @@ const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const user = useSelector(store => store.user.user);
+  const loggedIn = useSelector(store => store.user.loggedIn);
 
   useEffect(() => {
-    if (user) {
+    if (loggedIn) {
       setTimeout(() => {
-        navigate("/addItem");
+        navigate("/dashboard");
       }, 1000);
     }
-  }, [user]);
+  }, [loggedIn]);
   
   const handleSubmit = (event) => {
     event.preventDefault();

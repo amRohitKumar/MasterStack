@@ -51,7 +51,7 @@ const Dashboard = () => {
 
             {user.status === 0 ? (
               <>
-                <p>Let's begin by purchasing some ingredients!</p>
+                <h3>Let's begin by purchasing some ingredients!</h3>
                 <Button variant="contained" onClick={handleStart}>
                   Start
                 </Button>
@@ -62,14 +62,14 @@ const Dashboard = () => {
                   <>
                     {Date.now() > Date.parse(user.endsAt) ? (
                       <>
-                        <p>Your purchase time is over. Kindly Submit</p>
+                        <h3>Your purchase time is over. Kindly Submit</h3>
                         <Button variant="contained" onClick={handleSubmit}>
                           Submit
                         </Button>
                       </>
                     ) : (
                       <>
-                        <p>Uh oh! You left in the middle. Kindly Resume</p>
+                        <h3>Uh oh! You left in the middle. Kindly Resume</h3>
                         <Button variant="contained" onClick={handleResume}>
                           Resume
                         </Button>
@@ -85,7 +85,7 @@ const Dashboard = () => {
                   </>
                 ) : (
                   <>
-                    <p>You have purchased the ingredients</p>
+                    <h3>You have purchased the ingredients</h3>
                     <div>
                       <Chip
                         label="Purchased Ingredients"
@@ -106,16 +106,9 @@ const Dashboard = () => {
                 TEAM DETAILS
               </HeadTypography>
               <Divider variant="middle" />
-              <div style={{ margin: '1rem' }}>
-                <div style={{ fontSize: '2rem' }}>
-                  <b> Team Name: </b>
-                  {user.name}
-                </div>
-                <div style={{ fontSize: '2rem' }}>
-                  <b> College: </b>
-                  {user.clgName}
-                </div>
-              </div>
+              <TwoButtons first="Team Name" second={user.name} />
+              <TwoButtons first="Team Leader" second={user.members[0].name}/>
+              <TwoButtons first="College" second={user.clgName}/>
               <LabTabs members={user.members} />
             </div>
           </>

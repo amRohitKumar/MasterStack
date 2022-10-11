@@ -1,11 +1,43 @@
 import React from 'react'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
+import TableCell, { tableCellClasses }  from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Chip } from '@mui/material';
+import { styled } from '@mui/material/styles';
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    // backgroundColor: theme.palette.common.black,
+    // color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(even)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}));
+
+const StyledTableHeadRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}));
 const DashboardItems = ({list}) => {
 
 
@@ -13,28 +45,32 @@ const DashboardItems = ({list}) => {
   
   return (
     <>
-   {list.length===0?<><p>No ingredients</p></>:
+   {list.length===0?<Chip
+        label='No Ingredients'
+        color='warning'
+        sx={{ fontSize: "20px" }}
+      />:
     <TableContainer component={Paper} sx={{maxWidth:650}}>
-      <Table sx={{ maxWidth:650 }} aria-label="simple table">
+      <Table sx={{ minWidth:650 }} aria-label="simple table">
         <TableHead>
-          <TableRow>
-            <TableCell>Ingredient</TableCell>
-            <TableCell align="right">Cost</TableCell>
-            <TableCell align="right">Points</TableCell>
-          </TableRow>
+          <StyledTableHeadRow>
+            <StyledTableCell>Ingredient</StyledTableCell>
+            <StyledTableCell align="right">Cost</StyledTableCell>
+            <StyledTableCell align="right">Points</StyledTableCell>
+          </StyledTableHeadRow>
         </TableHead>
         <TableBody>
           {list.map((row) => (
-            <TableRow
+            <StyledTableRow
               key={row.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
+              <StyledTableCell component="th" scope="row">
                 {row.name}
-              </TableCell>
-              <TableCell align="right">{row.cost}</TableCell>
-              <TableCell align="right">{row.points}</TableCell>
-            </TableRow>
+              </StyledTableCell>
+              <StyledTableCell align="right">{row.cost}</StyledTableCell>
+              <StyledTableCell align="right">{row.points}</StyledTableCell>
+            </StyledTableRow>
           ))}
         </TableBody>
       </Table>

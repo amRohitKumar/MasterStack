@@ -1,21 +1,21 @@
-import React from 'react'
-import { styled } from '@mui/material/styles';
-import { Button } from "@mui/material";
-const Color = 'red'
-const ColorButton = styled(Button)(() => ({
-  textTransform:'none',
-  backgroundColor: Color,
-  '&:hover': {
-    backgroundColor: Color,
-  },
-}));
-const TwoButtons = ({first, second}) => {
-  return (
-    <div style={{marginBottom:'10px'}}>
-    <ColorButton variant="contained" sx={{margin:"0px 5px"}}>{first}</ColorButton>
-    <Button variant="contained" sx={{textTransform:'none'}}>{second}</Button>
-    </div>
-  )
-}
+import React from "react";
+import { Chip } from "@mui/material";
 
-export default TwoButtons
+const TwoButtons = ({ first, second }) => {
+  return (
+    <div style={{ margin: "10px 0px" }}>
+      <Chip
+        label={first}
+        color='primary'
+        sx={{ margin: "0px 5px", fontSize: "20px" }}
+      />
+      <Chip
+        label={second}
+        color='warning'
+        sx={{ margin: "0px 5px", fontSize: "20px" }}
+      />
+    </div>
+  );
+};
+
+export default TwoButtons;

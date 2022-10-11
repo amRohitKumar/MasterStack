@@ -170,7 +170,7 @@ const Navbar = () => {
                 textAlign="center"
                 onClick={() => dispatch(logoutUser())}
               >
-                Log Out
+                LogOut
               </Typography>
             </MenuItem>
           </Menu>
@@ -191,7 +191,7 @@ const Navbar = () => {
             sx={{ color: "#000", fontSize: "1.3rem" }}
             onClick={() => dispatch(logoutUser())}
           >
-            Log Out
+            LogOut
           </Button>
          
         </Box></>}

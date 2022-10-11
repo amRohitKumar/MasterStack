@@ -15,8 +15,8 @@ import { useNavigate } from 'react-router-dom';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    // backgroundColor: theme.palette.common.black,
+    // color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -34,7 +34,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const CurrentItems = () => {
-  const user = useSelector((store) => store.user.user);
+  const items = useSelector((store) => store.user.user.items);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleRemove = (itemId) => {
@@ -48,7 +48,7 @@ const CurrentItems = () => {
   };
   return (
     <TableContainer component={Paper}>
-      <Table style={{ width: '100%' }} stickyHeader aria-label="sticky table">
+      <Table style={{ width: '100%' }} aria-label="simple table">
         <TableHead>
           <StyledTableRow>
             <StyledTableCell
@@ -88,11 +88,11 @@ const CurrentItems = () => {
             <StyledTableCell>Ingredient</StyledTableCell>
             <StyledTableCell align="right">Cost</StyledTableCell>
             <StyledTableCell align="right">Points</StyledTableCell>
-            <StyledTableCell align="right"></StyledTableCell>
+            <StyledTableCell align="right">Action</StyledTableCell>
           </StyledTableRow>
         </TableHead>
         <TableBody>
-          {user.items.map((item) => (
+          {items.map((item) => (
             <StyledTableRow
               key={item.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

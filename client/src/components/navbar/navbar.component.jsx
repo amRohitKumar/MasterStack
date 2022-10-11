@@ -1,98 +1,203 @@
-import { useRef, useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Link,
+  Box,
+  Typography,
+  Button,
+  IconButton,
+  Menu,
+  MenuItem,
+} from "@mui/material";
+import React from "react";
+import logo from "../../assets/logo.png";
+import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../../features/user/userSlice";
 
-import styled from "@emotion/styled";
-import { AppBar, Avatar, Box, Toolbar, Button } from "@mui/material";
-import { UserCircle as UserCircleIcon } from "../../icons/user-circle";
-import { AccountPopover } from "./account-popover.component";
-import { useSelector } from "react-redux";
-
-const NavbarRoot = styled(AppBar)(({ theme }) => ({
-  backgroundColor: "#c451d1",
-}));
-
-export const Navbar = (props) => {
-  const { onSidebarOpen, ...other } = props;
-  const settingsRef = useRef(null);
-  const [openAccountPopover, setOpenAccountPopover] = useState(false);
+const Navbar = () => {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const loggedIn = useSelector(store => store.user.loggedIn);
   const navigate = useNavigate();
-  const loggedIn = useSelector((store) => store.user.loggedIn);
-  const name = useSelector((store) => store.user?.user?.name);
+  const dispatch = useDispatch();
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+ 
 
   return (
-    <>
-      <NavbarRoot
-        sx={{
-          width: {
-            lg: "100%",
-          },
-        }}
-        {...other}
-      >
-        <Toolbar
-          disableGutters
+    <AppBar position="fixed" sx={{ background: "#FFF", padding: "0.1rem" }}>
+      <Toolbar>
+        <Box justifyContent={"center"}>
+          <Link to="/" sx={{}}>
+            <Box
+              component="img"
+              sx={{ height: 50, marginTop: "5px" }}
+              alt="Logo"
+              src={logo}
+            />
+          </Link>
+        </Box>
+        <Typography
+          variant="h6"
+          noWrap
+          component="a"
+          onClick={()=>navigate("/")}
           sx={{
-            minHeight: 64,
-            left: 0,
-            px: 2,
+            paddingLeft: 1.8,
+            fontSize: "1.7rem",
+            fontWeight: 900,
+            letterSpacing: ".075rem",
+            color: "#000",
+            textDecoration: "none",
           }}
         >
-          {/* NAVBAR LOGO */}
-          <Box sx={{ flexGrow: 1 }} />
-          {loggedIn ===false? (
-            <>
-              <Button
-                variant='text'
-                size='small'
-                sx={{ ml: 1, color: "#fff" }}
-                onClick={() => navigate("register")}
+          MasterStack
+        </Typography>
+        {!loggedIn?<>
+          <Box sx={{ marginLeft: "auto", display: { xs: "flex", md: "none" } }}>
+          <IconButton
+            size="large"
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleOpenNavMenu}
+            sx={{ color: "#000" }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorElNav}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "left",
+            }}
+            open={Boolean(anchorElNav)}
+            onClose={handleCloseNavMenu}
+            sx={{
+              display: { xs: "block", md: "none" },
+            }}
+          >
+           
+            <MenuItem key={1}>
+              <Typography
+                textAlign="center"
+                onClick={() => navigate("/register")}
               >
                 Register
-              </Button>
-              <Button
-                variant='text'
-                size='small'
-                sx={{ ml: 1, color: "#fff" }}
-                onClick={() => navigate("login")}
+              </Typography>
+            </MenuItem>
+            <MenuItem key={2}>
+              <Typography
+                textAlign="center"
+                onClick={() => navigate("/login")}
               >
                 Login
-              </Button>
-              </>
-          ):(
-          <>
-            <Button
-              variant='text'
-              size='small'
-              sx={{ ml: 1, color: "#fff" }}
-              onClick={() => navigate("/")}
-            >
-              Dashboard
-            </Button>
-            <Avatar
-              onClick={() => setOpenAccountPopover(true)}
-              ref={settingsRef}
-              sx={{
-                cursor: "pointer",
-                height: 40,
-                width: 40,
-                ml: 3,
-                mr: 2,
-              }}
-              src='/static/images/avatars/avatar_1.png'
-            >
-              <UserCircleIcon fontSize='small' />
-            </Avatar>
-            <AccountPopover
-              anchorEl={settingsRef.current}
-              open={openAccountPopover}
-              onClose={() => setOpenAccountPopover(false)}
-              name={name}
-            />
-          </>
-          )}
-        </Toolbar>
-      </NavbarRoot>
-    </>
+              </Typography>
+            </MenuItem>
+          </Menu>
+        </Box>
+        <Box
+          sx={{
+            marginLeft: "auto",
+            display: { xs: "none", md: "flex" },
+          }}
+        >
+          
+         <Button
+            sx={{ color: "#000", fontSize: "1.3rem" }}
+            onClick={() => navigate("/login")}
+          >
+            Login
+          </Button>
+          <Button
+            sx={{ color: "#000", fontSize: "1.3rem" }}
+            onClick={() => navigate("/register")}
+          >
+            Register
+          </Button>
+        </Box></>:<>
+        <Box sx={{ marginLeft: "auto", display: { xs: "flex", md: "none" } }}>
+          <IconButton
+            size="large"
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleOpenNavMenu}
+            sx={{ color: "#000" }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorElNav}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "left",
+            }}
+            open={Boolean(anchorElNav)}
+            onClose={handleCloseNavMenu}
+            sx={{
+              display: { xs: "block", md: "none" },
+            }}
+          >
+           
+              <MenuItem key={1}>
+              <Typography
+                textAlign="center"
+                onClick={() => navigate("/dashboard")}
+              >
+                Dashboard
+              </Typography>
+            </MenuItem>
+            <MenuItem key={2}>
+              <Typography
+                textAlign="center"
+                onClick={() => dispatch(logoutUser())}
+              >
+                Log Out
+              </Typography>
+            </MenuItem>
+          </Menu>
+        </Box>
+        <Box
+          sx={{
+            marginLeft: "auto",
+            display: { xs: "none", md: "flex" },
+          }}
+        >
+          <Button
+            sx={{ color: "#000", fontSize: "1.3rem" }}
+            onClick={() => navigate("/dashboard")}
+          >
+            Dashboard
+          </Button>
+          <Button
+            sx={{ color: "#000", fontSize: "1.3rem" }}
+            onClick={() => dispatch(logoutUser())}
+          >
+            Log Out
+          </Button>
+         
+        </Box></>}
+        
+      </Toolbar>
+    </AppBar>
   );
 };
 

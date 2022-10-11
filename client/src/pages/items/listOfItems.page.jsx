@@ -1,7 +1,7 @@
 import React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
@@ -9,7 +9,27 @@ import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../../features/user/userSlice';
+import { styled } from '@mui/material/styles';
 
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    // backgroundColor: theme.palette.common.black,
+    // color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}));
 const ListOfItems = ({ list, name, click }) => {
   const dispatch = useDispatch();
   const handleAdd = (row) => {
@@ -20,35 +40,35 @@ const ListOfItems = ({ list, name, click }) => {
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
-          <TableRow>
-            <TableCell align="left" colSpan={2} style={{ fontSize: '1.5rem' }}>
+          <StyledTableRow>
+            <StyledTableCell align="left" colSpan={2} style={{ fontSize: '1.5rem' }}>
               {name}
-            </TableCell>
-            <TableCell align="right" colSpan={2} style={{ fontSize: '1.5rem' }}>
+            </StyledTableCell>
+            <StyledTableCell align="right" colSpan={2} style={{ fontSize: '1.5rem' }}>
               <Button variant="contained" onClick={() => click(0)}>
                 Back
               </Button>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Ingredient</TableCell>
-            <TableCell align="right">Cost</TableCell>
-            <TableCell align="right">Points</TableCell>
-            <TableCell align="right">Action</TableCell>
-          </TableRow>
+            </StyledTableCell>
+          </StyledTableRow>
+          <StyledTableRow>
+            <StyledTableCell>Ingredient</StyledTableCell>
+            <StyledTableCell align="right">Cost</StyledTableCell>
+            <StyledTableCell align="right">Points</StyledTableCell>
+            <StyledTableCell align="right">Action</StyledTableCell>
+          </StyledTableRow>
         </TableHead>
         <TableBody>
           {list.map((row) => (
-            <TableRow
+            <StyledTableRow
               key={row.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
+              <StyledTableCell component="th" scope="row">
                 {row.name}
-              </TableCell>
-              <TableCell align="right">{row.cost}</TableCell>
-              <TableCell align="right">{row.points}</TableCell>
-              <TableCell align="right">
+              </StyledTableCell>
+              <StyledTableCell align="right">{row.cost}</StyledTableCell>
+              <StyledTableCell align="right">{row.points}</StyledTableCell>
+              <StyledTableCell align="right">
                 <Button
                   onClick={() => handleAdd(row)}
                   disabled={
@@ -57,8 +77,8 @@ const ListOfItems = ({ list, name, click }) => {
                 >
                   Add
                 </Button>
-              </TableCell>
-            </TableRow>
+              </StyledTableCell>
+            </StyledTableRow>
           ))}
         </TableBody>
       </Table>

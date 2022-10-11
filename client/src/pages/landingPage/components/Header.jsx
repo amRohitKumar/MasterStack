@@ -31,13 +31,13 @@ const Header = (props) => {
   };
 
   return (
-    <AppBar position="fixed" sx={{ background: "#FFF", padding: "0.6rem" }}>
+    <AppBar position="fixed" sx={{ background: "#FFF", padding: "0.1rem" }}>
       <Toolbar>
         <Box justifyContent={"center"}>
           <Link href="/" sx={{}}>
             <Box
               component="img"
-              sx={{ height: 80, marginTop: "5px" }}
+              sx={{ height: 50, marginTop: "5px" }}
               alt="Logo"
               src={logo}
             />
@@ -47,7 +47,7 @@ const Header = (props) => {
           variant="h6"
           noWrap
           component="a"
-          href="/"
+          onClick={()=>navigate("/")}
           sx={{
             paddingLeft: 1.8,
             fontSize: "1.7rem",

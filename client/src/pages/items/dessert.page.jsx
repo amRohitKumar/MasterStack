@@ -1,17 +1,9 @@
-import React from 'react'
-import Button from '@mui/material/Button';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import ListOfItems from './listOfItems.page';
-const Dessert = ({handleOption}) => {
-    const items = useSelector(store => store.item.dessert);
-  return (
-    <>
-    <Button variant="contained" onClick={()=>handleOption(0)}>Back</Button>
-    <div>Dessert</div>
-    <ListOfItems list={items}/>
-    </>
-   
-  )
-}
+const Dessert = ({ handleOption }) => {
+  const items = useSelector((store) => store.item.dessert);
+  return <ListOfItems list={items} name="Dessert" click={handleOption} />;
+};
 
-export default Dessert
+export default Dessert;

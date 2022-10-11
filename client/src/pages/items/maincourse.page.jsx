@@ -1,17 +1,9 @@
-import React from 'react'
-import Button from '@mui/material/Button';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import ListOfItems from './listOfItems.page';
-const Maincourse = ({handleOption}) => {
-    const items = useSelector(store => store.item.maincourse);
-  return (
-    <>
-    <Button variant="contained" onClick={()=>handleOption(0)}>Back</Button>
-    <div>Maincourse</div>
-    <ListOfItems list={items}/>
-    </>
-    
-  )
-}
+const Maincourse = ({ handleOption }) => {
+  const items = useSelector((store) => store.item.maincourse);
+  return <ListOfItems list={items} name="Main Course" click={handleOption} />;
+};
 
-export default Maincourse
+export default Maincourse;

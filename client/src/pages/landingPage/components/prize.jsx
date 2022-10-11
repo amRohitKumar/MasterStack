@@ -1,10 +1,11 @@
-import { Card, Grid, styled, Typography, useMediaQuery } from "@mui/material";
+import { Grid, styled, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 
 const StyledGrid = styled(Grid)(({ theme }) => ({
-  boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px;",
-  width: "85%",
-  borderRadius: "1rem",
+  boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px;',
+  width: '85%',
+  borderRadius: '1rem',
+  // backgroundColor: '#d7d8f3',
 }));
 
 const Prize = (props) => {

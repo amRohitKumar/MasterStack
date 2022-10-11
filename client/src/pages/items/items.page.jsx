@@ -9,11 +9,13 @@ import Dessert from './dessert.page';
 import Maincourse from './maincourse.page';
 import Menu from './menu.page';
 import Salad from './salad.page';
-import Stacks from './stacks.page';
 import { Timer } from './timer.page';
 import { toast } from 'react-toastify';
+import CurrentItems from './currentItems.page';
+import { Container } from '@mui/system';
 
 const Items = () => {
+  const user = useSelector((store) => store.user.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   //const amount = useSelector(store => store.user.user.points);
@@ -41,18 +43,22 @@ const Items = () => {
   }, []);
   return (
     <>
-      <Timer />
+      <Grid style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div>Balance: {user.amount}</div>
+        <Timer />
+        <div>Points: {user.points}</div>
+      </Grid>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={5}>
-          <Grid item xs={7}>
+          <Grid item xs={12} md={7}>
             {option === 0 && <Menu handleOption={handleOption} />}
             {option === 1 && <Appetizer handleOption={handleOption} />}
             {option === 2 && <Salad handleOption={handleOption} />}
             {option === 3 && <Maincourse handleOption={handleOption} />}
             {option === 4 && <Dessert handleOption={handleOption} />}
           </Grid>
-          <Grid item xs={5}>
-            <Stacks />
+          <Grid item xs={12} md={5}>
+            <CurrentItems />
           </Grid>
         </Grid>
       </Box>

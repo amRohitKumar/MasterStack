@@ -9,6 +9,9 @@ const Footer = () => {
         color: 'rgb(255,255,255,0.5)',
         padding: '2rem',
         fontSize: '1rem',
+        position: 'absolute',
+        bottom: '0',
+        width: '100%',
       }}
     >
       © Copyright 2022 MasterStack. All Rights Reserved.

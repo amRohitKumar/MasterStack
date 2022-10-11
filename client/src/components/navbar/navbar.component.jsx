@@ -17,6 +17,7 @@ export const Navbar = (props) => {
   const [openAccountPopover, setOpenAccountPopover] = useState(false);
   const navigate = useNavigate();
   const loggedIn = useSelector((store) => store.user.loggedIn);
+  const name = useSelector((store) => store.user?.user?.name);
 
   return (
     <>
@@ -57,36 +58,40 @@ export const Navbar = (props) => {
                 Login
               </Button>
               </>
-          ):(<Button
-            variant='text'
-            size='small'
-            sx={{ ml: 1, color: "#fff" }}
-            onClick={() => navigate("/dashboard")}
-          >
-            Dashboard
-          </Button>)}
-          
-          <Avatar
-            onClick={() => setOpenAccountPopover(true)}
-            ref={settingsRef}
-            sx={{
-              cursor: "pointer",
-              height: 40,
-              width: 40,
-              ml: 3,
-              mr: 2,
-            }}
-            src='/static/images/avatars/avatar_1.png'
-          >
-            <UserCircleIcon fontSize='small' />
-          </Avatar>
+          ):(
+          <>
+            <Button
+              variant='text'
+              size='small'
+              sx={{ ml: 1, color: "#fff" }}
+              onClick={() => navigate("/dashboard")}
+            >
+              Dashboard
+            </Button>
+            <Avatar
+              onClick={() => setOpenAccountPopover(true)}
+              ref={settingsRef}
+              sx={{
+                cursor: "pointer",
+                height: 40,
+                width: 40,
+                ml: 3,
+                mr: 2,
+              }}
+              src='/static/images/avatars/avatar_1.png'
+            >
+              <UserCircleIcon fontSize='small' />
+            </Avatar>
+            <AccountPopover
+              anchorEl={settingsRef.current}
+              open={openAccountPopover}
+              onClose={() => setOpenAccountPopover(false)}
+              name={name}
+            />
+          </>
+          )}
         </Toolbar>
       </NavbarRoot>
-      <AccountPopover
-        anchorEl={settingsRef.current}
-        open={openAccountPopover}
-        onClose={() => setOpenAccountPopover(false)}
-      />
     </>
   );
 };

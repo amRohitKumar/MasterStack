@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../features/user/userSlice";
 
 export const AccountPopover = (props) => {
-  const { anchorEl, onClose, open, ...other } = props;
-  const dispatch = useDispatch()
+  const { anchorEl, onClose, open, name, ...other } = props;
+  const dispatch = useDispatch();
   const handleSignOut = (e) => {
     e.preventDefault();
-    
+
     dispatch(logoutUser());
   };
-  const name = useSelector(store => store.user.user.name)
+
   return (
     <Popover
       anchorEl={anchorEl}
@@ -35,6 +35,7 @@ export const AccountPopover = (props) => {
         <Typography color="text.secondary" variant="body2">
           {name}
         </Typography>
+
         {/* OTHER OPTIONS */}
       </Box>
       <MenuList

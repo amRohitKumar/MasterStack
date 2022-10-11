@@ -45,7 +45,7 @@ const login = async (req, res) => {
   try {
     const { teamName, password } = req.body;
     //console.log(teamName);
-    const resp = await User.findOne({ teamName: teamName });
+    const resp = await User.findOne({ name: teamName });
     if (!resp) {
       return res.status(400).send({ msg: "Invalid Credentials" });
     }

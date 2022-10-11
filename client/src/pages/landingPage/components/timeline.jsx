@@ -15,6 +15,7 @@ import HeadTypography from './headTypography';
 import ArticleIcon from '@mui/icons-material/Article';
 import GroupIcon from '@mui/icons-material/Group';
 import CelebrationIcon from '@mui/icons-material/Celebration';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const MyTimeLine = React.forwardRef((props, ref) => {
   const match = useMediaQuery('(min-width:600px)');
@@ -43,7 +44,9 @@ const MyTimeLine = React.forwardRef((props, ref) => {
           size={match}
           styles={{ color: '#5457fa', fontSize: '3.5rem' }}
         >
-          TIMELINE
+          <ScrollAnimation animateIn="fadeIn" duration={0.5}>
+            TIMELINE
+          </ScrollAnimation>
         </HeadTypography>
         <Divider variant="middle" />
         <Timeline position="alternate" sx={{ margin: '2rem' }}>

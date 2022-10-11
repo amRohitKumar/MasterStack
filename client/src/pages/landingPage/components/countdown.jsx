@@ -68,7 +68,7 @@ const CountDown = () => {
       <Box
         sx={{
           padding: '1rem',
-          marginTop: '1rem'
+          marginTop: '1rem',
         }}
       >
         <Button

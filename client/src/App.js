@@ -13,7 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <CssBaseline />
-      <Container maxWidth={false} sx={{maxWidth: '90%'}}>
+      <Container maxWidth={false} sx={{maxWidth: '100%'}}>
       <Routes>
         <Route exact path="/login" element={<LogIn />}></Route>
         <Route exact path="/register" element={<Register />}></Route>

@@ -64,7 +64,7 @@ export const Navbar = (props) => {
               variant='text'
               size='small'
               sx={{ ml: 1, color: "#fff" }}
-              onClick={() => navigate("/dashboard")}
+              onClick={() => navigate("/")}
             >
               Dashboard
             </Button>

@@ -6,7 +6,7 @@ const ProtectedRoutes = ({ children }) => {
   // LOGIN TO VERIFY USER
   const user = useSelector((store) => store.user.user);
   if (!user) {
-    return <LandingPage />;
+    return <Navigate to="/" />;
   }
   return children;
 };

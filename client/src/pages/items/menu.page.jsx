@@ -36,7 +36,6 @@ const list = [
 const Menu = ({handleOption}) => {
   return (
     <>  
-    <div>Menu</div>
     <Box sx={{ flexGrow: 1 }}>
     <Grid container spacing={2}>
 

@@ -14,6 +14,8 @@ import { toast } from 'react-toastify';
 import CurrentItems from './currentItems.page';
 import Balance from './balance.page';
 import Points from './points.page';
+import { Container } from "@mui/system";
+
 
 const Items = () => {
   const user = useSelector((store) => store.user.user);
@@ -44,6 +46,7 @@ const Items = () => {
   }, []);
   return (
     <>
+    <Container maxWidth={false} sx={{maxWidth:"90%", marginBottom:'3rem'}}>
       <Grid style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Balance />
         <Timer />
@@ -63,6 +66,7 @@ const Items = () => {
           </Grid>
         </Grid>
       </Box>
+      </Container>
     </>
   );
 };

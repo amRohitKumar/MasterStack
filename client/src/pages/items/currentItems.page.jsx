@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { removeItem } from '../../features/user/userSlice';
 import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { submitItems } from '../../features/user/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -34,8 +36,15 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 const CurrentItems = () => {
   const user = useSelector((store) => store.user.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleRemove = (itemId) => {
     dispatch(removeItem(itemId));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(submitItems()).then(() => {
+      navigate('/dashboard');
+    });
   };
   return (
     <TableContainer component={Paper}>
@@ -54,7 +63,7 @@ const CurrentItems = () => {
               colSpan={2}
               style={{ fontSize: '1.5rem' }}
             >
-              <Button variant="contained" onClick={() => {}}>
+              <Button variant="contained" onClick={(e) => handleSubmit(e)}>
                 Submit
               </Button>
             </StyledTableCell>

@@ -8,11 +8,11 @@ import {
   IconButton,
   Menu,
   MenuItem,
-} from '@mui/material';
-import React from 'react';
-import logo from '../../../assets/logo.png';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useNavigate } from 'react-router-dom';
+} from "@mui/material";
+import React from "react";
+import logo from "../../../assets/logo.png";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useNavigate } from "react-router-dom";
 
 const Header = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -26,18 +26,18 @@ const Header = (props) => {
   const scrollToSection = (elementRef) => {
     window.scrollTo({
       top: elementRef.current.offsetTop,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
   return (
-    <AppBar position="fixed" sx={{ background: '#FFF', padding: '0.6rem' }}>
+    <AppBar position="fixed" sx={{ background: "#FFF", padding: "0.6rem" }}>
       <Toolbar>
-        <Box justifyContent={'center'}>
+        <Box justifyContent={"center"}>
           <Link href="/" sx={{}}>
             <Box
               component="img"
-              sx={{ height: 80, marginTop: '5px' }}
+              sx={{ height: 80, marginTop: "5px" }}
               alt="Logo"
               src={logo}
             />
@@ -50,23 +50,23 @@ const Header = (props) => {
           href="/"
           sx={{
             paddingLeft: 1.8,
-            fontSize: '1.7rem',
+            fontSize: "1.7rem",
             fontWeight: 900,
-            letterSpacing: '.075rem',
-            color: '#000',
-            textDecoration: 'none',
+            letterSpacing: ".075rem",
+            color: "#000",
+            textDecoration: "none",
           }}
         >
           MasterStack
         </Typography>
-        <Box sx={{ marginLeft: 'auto', display: { xs: 'flex', md: 'none' } }}>
+        <Box sx={{ marginLeft: "auto", display: { xs: "flex", md: "none" } }}>
           <IconButton
             size="large"
             aria-label="account of current user"
             aria-controls="menu-appbar"
             aria-haspopup="true"
             onClick={handleOpenNavMenu}
-            sx={{ color: '#000' }}
+            sx={{ color: "#000" }}
           >
             <MenuIcon />
           </IconButton>
@@ -74,18 +74,18 @@ const Header = (props) => {
             id="menu-appbar"
             anchorEl={anchorElNav}
             anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'left',
+              vertical: "bottom",
+              horizontal: "left",
             }}
             keepMounted
             transformOrigin={{
-              vertical: 'top',
-              horizontal: 'left',
+              vertical: "top",
+              horizontal: "left",
             }}
             open={Boolean(anchorElNav)}
             onClose={handleCloseNavMenu}
             sx={{
-              display: { xs: 'block', md: 'none' },
+              display: { xs: "block", md: "none" },
             }}
           >
             <MenuItem key={1}>
@@ -113,14 +113,22 @@ const Header = (props) => {
               </Typography>
             </MenuItem>
             <MenuItem key={4}>
-              <Typography textAlign="center" onClick={() => navigate('login')}>
-                Login
+              <Typography
+                textAlign="center"
+                onClick={() => scrollToSection(props.prizes)}
+              >
+                Prizes
               </Typography>
             </MenuItem>
             <MenuItem key={5}>
+              <Typography textAlign="center" onClick={() => navigate("login")}>
+                Login
+              </Typography>
+            </MenuItem>
+            <MenuItem key={6}>
               <Typography
                 textAlign="center"
-                onClick={() => navigate('register')}
+                onClick={() => navigate("register")}
               >
                 Register
               </Typography>
@@ -129,37 +137,43 @@ const Header = (props) => {
         </Box>
         <Box
           sx={{
-            marginLeft: 'auto',
-            display: { xs: 'none', md: 'flex' },
+            marginLeft: "auto",
+            display: { xs: "none", md: "flex" },
           }}
         >
           <Button
-            sx={{ color: '#000', fontSize: '1.3rem' }}
+            sx={{ color: "#000", fontSize: "1.3rem" }}
             onClick={() => scrollToSection(props.about)}
           >
             About
           </Button>
           <Button
-            sx={{ color: '#000', fontSize: '1.3rem' }}
+            sx={{ color: "#000", fontSize: "1.3rem" }}
             onClick={() => scrollToSection(props.rules)}
           >
             Rules
           </Button>
           <Button
-            sx={{ color: '#000', fontSize: '1.3rem' }}
+            sx={{ color: "#000", fontSize: "1.3rem" }}
             onClick={() => scrollToSection(props.timeline)}
           >
             Timeline
           </Button>
           <Button
-            sx={{ color: '#000', fontSize: '1.3rem' }}
-            onClick={() => navigate('login')}
+            sx={{ color: "#000", fontSize: "1.3rem" }}
+            onClick={() => scrollToSection(props.prizes)}
+          >
+            Prizes
+          </Button>
+          <Button
+            sx={{ color: "#000", fontSize: "1.3rem" }}
+            onClick={() => navigate("login")}
           >
             Login
           </Button>
           <Button
-            sx={{ color: '#000', fontSize: '1.3rem' }}
-            onClick={() => navigate('register')}
+            sx={{ color: "#000", fontSize: "1.3rem" }}
+            onClick={() => navigate("register")}
           >
             Register
           </Button>

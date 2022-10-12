@@ -116,8 +116,7 @@ const Rules = React.forwardRef((props, ref) => {
           <ScrollAnimation animateIn="bounceInRight">
             <List sx={{ listStyleType: 'disc', pr: 4 }}>
               <StyledListItem>
-                You will have to register yourselves on the website that will be
-                provided soon.
+                All registrations need to be done on the website itself.
               </StyledListItem>
               <StyledListItem>
                 Teams with a size of exactly 3 are to be formed.
@@ -126,9 +125,11 @@ const Rules = React.forwardRef((props, ref) => {
                 No person should belong to multiple teams.
               </StyledListItem>
               <StyledListItem>
-                While registering, you have set your team name and password
-                which will be used to log in for buying the tech stack and
-                further rounds.
+                <b>
+                  While registering, a team name and password needs to be set
+                  which will be used for login and participating in further
+                  rounds.
+                </b>
               </StyledListItem>
               <StyledListItem>
                 You will be allowed 5 minutes and a limited virtual amount to
@@ -143,13 +144,13 @@ const Rules = React.forwardRef((props, ref) => {
                 the bought item will add to your final scores. So choose wisely.
               </StyledListItem>
               <StyledListItem>
-                Failing to use any bought ingredient (tech stack) will reduce
+                Failing to use any bought ingredient ( tech stack ) will reduce
                 your points associated with that ingredient. So make sure you
                 use all the bought ingredients.
               </StyledListItem>
               <StyledListItem>
-                You are supposed to only use bought ingredients (tech stacks) to
-                prepare your dish (the final application). Using any item not
+                You are supposed to use only the bought ingredients ( tech stacks ) to
+                prepare your dish ( the final application ). Using any item not
                 bought by you will bring down your score/lead to
                 disqualification.
               </StyledListItem>

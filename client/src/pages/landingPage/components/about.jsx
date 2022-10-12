@@ -1,25 +1,23 @@
-import { Typography, useMediaQuery, Divider } from "@mui/material";
-import { Box, Container } from "@mui/system";
-import React from "react";
-import ScrollAnimation from "react-animate-on-scroll";
-import HeadTypography from "./headTypography";
+import { Typography, useMediaQuery, Divider } from '@mui/material';
+import { Box, Container } from '@mui/system';
+import React from 'react';
+import ScrollAnimation from 'react-animate-on-scroll';
+import HeadTypography from './headTypography';
 const About = React.forwardRef((props, ref) => {
-  const match = useMediaQuery("(min-width:600px)");
+  const match = useMediaQuery('(min-width:600px)');
   return (
     <Box
       ref={ref}
       sx={{
         // backgroundColor: '#F8FBFB',
-        width: "100%",
-        height: "auto",
+        width: '100%',
+        height: 'auto',
       }}
     >
-      <Container
-        sx={{padding: match?"4rem":"3rem"}}
-      >
+      <Container sx={{ padding: match ? '4rem' : '3rem' }}>
         <HeadTypography
           size={match}
-          styles={{ color: "#5457fa", fontSize: "3.5rem" }}
+          styles={{ color: '#5457fa', fontSize: '3.5rem' }}
         >
           <ScrollAnimation animateIn="fadeIn" duration={0.5}>
             ABOUT
@@ -30,23 +28,25 @@ const About = React.forwardRef((props, ref) => {
           sx={
             match
               ? {
-                  fontWeight: "50",
-                  fontSize: "1.22rem",
-                  margin: "2rem",
-                  textAlign: "justify",
+                  fontWeight: '50',
+                  fontSize: '1.22rem',
+                  margin: '2rem',
+                  textAlign: 'justify',
                 }
-              : { margin: "2rem", textAlign: "justify" }
+              : { margin: '2rem', textAlign: 'justify' }
           }
         >
-          MasterStack is an event where teams of size 3 will be formed and
-          compete against each other to get the best tech stacks within a
-          limited amount of virtual currency and a limited time of 5 minutes.
-          Teams will require themselves to register on the website created for
-          this specific event with their details and then they will be allowed
-          to purchase a set of tech stacks using which they have to develop a
-          proposal of what they are going to build using only those tech stacks.
-          Good proposals qualify for the next round where teams will be required
-          to come up with a prototype of what they intend to build.
+          MasterStack is an event, similar to <b>MasterChef</b> ( the
+          competitive cooking show ) where teams of size 3 will compete against
+          each other to get the best tech stacks ( belonging to fields like
+          Machine Learning, Web Development and App Development ) within a
+          limited amount of virtual currency and a limited time, each stack
+          containing a specified set of points. After the purchase, an idea
+          needs to be proposed using only those tech stacks. Good proposals
+          qualify for the next round where teams will be required to come up
+          with a prototype of what they intend to build. The final stage
+          consists of an offline presentation where the teams will be
+          interviewed on the built prototype.
         </Typography>
       </Container>
     </Box>

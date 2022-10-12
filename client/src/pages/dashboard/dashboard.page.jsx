@@ -7,10 +7,13 @@ import DashboardItems from './table.page';
 import TwoButtons from './twoButtons.page';
 import LabTabs from './labtabs.page';
 import HeadTypography from '../landingPage/components/headTypography';
+import MyModal from './modal.page';
+import { useState } from 'react';
 
 const Dashboard = () => {
   var match = useMediaQuery('(min-width:600px)');
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -34,6 +37,13 @@ const Dashboard = () => {
     dispatch(submitItems());
   };
 
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
       <Container maxWidth={false} sx={{ maxWidth: '90%' }}>
@@ -49,6 +59,10 @@ const Dashboard = () => {
               <Divider variant="middle" />
             </div>
 
+            <MyModal isModalOpen={isModalOpen} handleClose={handleModalClose} />
+            <Button variant="contained" onClick={handleModalOpen}>
+              Modal
+            </Button>
             {user.status === 0 ? (
               <>
                 <h3>Let's begin by purchasing some ingredients!</h3>

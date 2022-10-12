@@ -10,28 +10,28 @@ const list = [
   {
     id: 1,
     name: 'Appetizer',
-    description: 'Yummy',
+    description: 'Start the perfect recipe with the perfect ingredient.',
     image:
       'https://m.economictimes.com/thumb/msid-89885004,width-1200,height-900,resizemode-4,imgsize-137412/healthy-food_think.jpg',
   },
   {
     id: 2,
     name: 'Salad',
-    description: 'Yummy',
+    description: 'I lost some weight once, but I found it again in the fridge.',
     image:
       'https://m.economictimes.com/thumb/msid-89885004,width-1200,height-900,resizemode-4,imgsize-137412/healthy-food_think.jpg',
   },
   {
     id: 3,
     name: 'Main Course',
-    description: 'Yummy',
+    description: 'Good food choices are good investments',
     image:
       'https://m.economictimes.com/thumb/msid-89885004,width-1200,height-900,resizemode-4,imgsize-137412/healthy-food_think.jpg',
   },
   {
     id: 4,
     name: 'Dessert',
-    description: 'Yummy',
+    description: 'Stressed? Desserts will reverse it for you',
     image:
       'https://m.economictimes.com/thumb/msid-89885004,width-1200,height-900,resizemode-4,imgsize-137412/healthy-food_think.jpg',
   },

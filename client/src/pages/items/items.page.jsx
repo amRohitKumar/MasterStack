@@ -15,10 +15,10 @@ import CurrentItems from './currentItems.page';
 import Balance from './balance.page';
 import Points from './points.page';
 import { Container } from "@mui/system";
+import { useMediaQuery } from '@mui/material';
 
 
 const Items = () => {
-  const user = useSelector((store) => store.user.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   //const amount = useSelector(store => store.user.user.points);
@@ -29,11 +29,12 @@ const Items = () => {
   };
   const hasData = useSelector((store) => store.item.hasData);
   const status = useSelector((store) => store.user.user.status);
+  var match = useMediaQuery('(min-width:800px)');
 
   useEffect(() => {
     if (hasData === false) {
       dispatch(fetchItem());
-      toast.success('hasData has run');
+      // toast.success('hasData has run');
     }
 
     if (status === 0) {
@@ -46,26 +47,47 @@ const Items = () => {
   }, []);
   return (
     <>
-    <Container maxWidth={false} sx={{maxWidth:"90%", marginBottom:'3rem'}}>
-      <Grid style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Balance />
-        <Timer />
-        <Points />
-      </Grid>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={5}>
-          <Grid item xs={12} md={7}>
-            {option === 0 && <Menu handleOption={handleOption} />}
-            {option === 1 && <Appetizer handleOption={handleOption} />}
-            {option === 2 && <Salad handleOption={handleOption} />}
-            {option === 3 && <Maincourse handleOption={handleOption} />}
-            {option === 4 && <Dessert handleOption={handleOption} />}
-          </Grid>
-          <Grid item xs={12} md={5}>
-            <CurrentItems />
-          </Grid>
+      <Container
+        maxWidth={false}
+        sx={{ maxWidth: '90%', marginBottom: '3rem' }}
+      >
+        <Grid
+          style={
+            match
+              ? {
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                  marginTop: '1rem',
+                }
+              : {
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'space-between',
+                  flexDirection: 'column',
+                  marginTop: '1rem',
+                }
+          }
+        >
+          <Balance />
+          <Timer />
+          <Points />
         </Grid>
-      </Box>
+        <Box sx={{ flexGrow: 1, marginY: '1.5rem' }}>
+          <Grid container spacing={5}>
+            <Grid item xs={12} md={7}>
+              {option === 0 && <Menu handleOption={handleOption} />}
+              {option === 1 && <Appetizer handleOption={handleOption} />}
+              {option === 2 && <Salad handleOption={handleOption} />}
+              {option === 3 && <Maincourse handleOption={handleOption} />}
+              {option === 4 && <Dessert handleOption={handleOption} />}
+            </Grid>
+            <Grid item xs={12} md={5}>
+              <CurrentItems />
+            </Grid>
+          </Grid>
+        </Box>
       </Container>
     </>
   );

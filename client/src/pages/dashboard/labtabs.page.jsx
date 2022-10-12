@@ -13,7 +13,7 @@ export default function LabTabs({ members }) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  var match = useMediaQuery('(min-width:600px)');
+  var match = useMediaQuery('(min-width:800px)');
 
   return (
     <Box

@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses }  from '@mui/material/TableCell';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
@@ -38,45 +38,50 @@ const StyledTableHeadRow = styled(TableRow)(({ theme }) => ({
     border: 0,
   },
 }));
-const DashboardItems = ({list}) => {
-
-
-    
-  
+const DashboardItems = ({ list }) => {
   return (
     <>
-   {list.length===0?<Chip
-        label='No Ingredients'
-        color='warning'
-        sx={{ fontSize: "20px" }}
-      />:
-    <TableContainer component={Paper} sx={{maxWidth:650}}>
-      <Table sx={{ minWidth:650 }} aria-label="simple table">
-        <TableHead>
-          <StyledTableHeadRow>
-            <StyledTableCell>Ingredient</StyledTableCell>
-            <StyledTableCell align="right">Cost</StyledTableCell>
-            <StyledTableCell align="right">Points</StyledTableCell>
-          </StyledTableHeadRow>
-        </TableHead>
-        <TableBody>
-          {list.map((row) => (
-            <StyledTableRow
-              key={row.id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <StyledTableCell component="th" scope="row">
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.cost}</StyledTableCell>
-              <StyledTableCell align="right">{row.points}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>}
+      {list.length === 0 ? (
+        <Chip
+          label="No Ingredients"
+          color="warning"
+          style={{ fontSize: '20px' }}
+        />
+      ) : (
+        <TableContainer component={Paper} sx={{ maxWidth: 650 }}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <StyledTableHeadRow>
+                <StyledTableCell style={{ fontSize: '1.2rem' }}>
+                  <b>Ingredient</b>
+                </StyledTableCell>
+                <StyledTableCell align="right" style={{ fontSize: '1.2rem' }}>
+                  <b>Cost</b>
+                </StyledTableCell>
+                <StyledTableCell align="right" style={{ fontSize: '1.2rem' }}>
+                  <b>Points</b>
+                </StyledTableCell>
+              </StyledTableHeadRow>
+            </TableHead>
+            <TableBody>
+              {list.map((row) => (
+                <StyledTableRow
+                  key={row.id}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <StyledTableCell component="th" scope="row">
+                    {row.name}
+                  </StyledTableCell>
+                  <StyledTableCell align="right">{row.cost}</StyledTableCell>
+                  <StyledTableCell align="right">{row.points}</StyledTableCell>
+                </StyledTableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      )}
     </>
-  )
-}
+  );
+};
 
-export default DashboardItems
+export default DashboardItems;

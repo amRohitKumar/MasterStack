@@ -98,17 +98,17 @@ const Dashboard = () => {
                 <DashboardItems list={user.items} />
               </>
             )}
-            <div style={{marginTop: '2rem'}}>
+            <div style={{ marginTop: '2rem' }}>
               <HeadTypography
                 size={match}
                 styles={{ color: '#5457fa', fontSize: '3.5rem' }}
               >
                 TEAM DETAILS
               </HeadTypography>
-              <Divider variant="middle" />
+              <Divider variant="middle" style={{ marginBottom: '1.5rem' }} />
               <TwoButtons first="Team Name" second={user.name} />
-              <TwoButtons first="Team Leader" second={user.members[0].name}/>
-              <TwoButtons first="College" second={user.clgName}/>
+              <TwoButtons first="Team Leader" second={user.members[0].name} />
+              <TwoButtons first="College" second={user.clgName} />
               <LabTabs members={user.members} />
             </div>
           </>

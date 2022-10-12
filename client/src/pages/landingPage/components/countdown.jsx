@@ -5,6 +5,7 @@ import backgroundImage from '../../../assets/background.jpg';
 import { Box, Button, Typography, useMediaQuery } from '@mui/material';
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const StyledBox = styled(Box)(({ theme }) => ({
   minHeight: '35rem',
@@ -32,6 +33,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
 const CountDown = () => {
   const match = useMediaQuery('(min-width:600px)');
   const navigate = useNavigate();
+  const loggedIn = useSelector((store) => store.user.loggedIn);
   return (
     <StyledBox>
       <Typography
@@ -70,31 +72,54 @@ const CountDown = () => {
           marginTop: '1rem',
         }}
       >
-        <Button
-          variant="contained"
-          sx={{
-            backgroundColor: '#000',
-            marginRight: '0.5rem',
-            '&:hover': {
+        {!loggedIn ? (
+          <>
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: '#000',
+                marginRight: '0.5rem',
+                fontSize: '1rem',
+                padding: '0.7rem 1.5rem',
+                '&:hover': {
+                  backgroundColor: '#FE7163',
+                },
+              }}
+              onClick={() => navigate('register')}
+            >
+              Register
+            </Button>
+            <Button
+              sx={{
+                backgroundColor: '#8D9EF4',
+                fontSize: '1rem',
+                padding: '0.7rem 1.5rem',
+                '&:hover': {
+                  backgroundColor: '#FE7163',
+                },
+              }}
+              variant="contained"
+              onClick={() => navigate('login')}
+            >
+              Login
+            </Button>
+          </>
+        ) : (
+          <Button
+            variant="contained"
+            sx={{
               backgroundColor: '#FE7163',
-            },
-          }}
-          onClick={() => navigate('register')}
-        >
-          Register
-        </Button>
-        <Button
-          sx={{
-            backgroundColor: '#8D9EF4',
-            '&:hover': {
-              backgroundColor: '#FE7163',
-            },
-          }}
-          variant="contained"
-          onClick={() => navigate('login')}
-        >
-          Login
-        </Button>
+              fontSize: '1.2rem',
+              padding: '1rem 2rem',
+              '&:hover': {
+                backgroundColor: '#ef2c19',
+              },
+            }}
+            onClick={() => navigate('dashboard')}
+          >
+            Dashboard
+          </Button>
+        )}
       </Box>
     </StyledBox>
   );

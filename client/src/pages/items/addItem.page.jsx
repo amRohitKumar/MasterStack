@@ -7,7 +7,7 @@ import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import Button from "@mui/material/Button";
 import { addItem } from '../../features/item/itemSlice';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 const AddItem = () => {

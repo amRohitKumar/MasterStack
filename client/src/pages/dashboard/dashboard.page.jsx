@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { startGame, submitItems } from '../../features/user/userSlice';
+import { submitItems } from '../../features/user/userSlice';
 import { Button, Chip, useMediaQuery, Divider } from '@mui/material';
 import { Container } from '@mui/system';
 import DashboardItems from './table.page';
@@ -18,14 +18,9 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const user = useSelector((store) => store.user.user);
-  console.log(user);
+  //console.log(user);
 
-  const handleStart = (e) => {
-    e.preventDefault();
-    dispatch(startGame()).then(() => {
-      navigate('/items');
-    });
-  };
+  
 
   const handleResume = (e) => {
     e.preventDefault();
@@ -60,13 +55,11 @@ const Dashboard = () => {
             </div>
 
             <MyModal isModalOpen={isModalOpen} handleClose={handleModalClose} />
-            <Button variant="contained" onClick={handleModalOpen}>
-              Modal
-            </Button>
+           
             {user.status === 0 ? (
               <>
                 <h3>Let's begin by purchasing some ingredients!</h3>
-                <Button variant="contained" onClick={handleStart}>
+                <Button variant="contained" onClick={handleModalOpen}>
                   Start
                 </Button>
               </>

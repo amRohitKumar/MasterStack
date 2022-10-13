@@ -19,23 +19,18 @@ import { useMediaQuery } from '@mui/material';
 
 
 const Items = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   //const amount = useSelector(store => store.user.user.points);
-  console.log(1);
+  //console.log(1);
   const [option, setOption] = useState(0);
   const handleOption = (val) => {
     setOption(val);
   };
-  const hasData = useSelector((store) => store.item.hasData);
   const status = useSelector((store) => store.user.user.status);
   var match = useMediaQuery('(min-width:800px)');
 
   useEffect(() => {
-    if (hasData === false) {
-      dispatch(fetchItem());
-      // toast.success('hasData has run');
-    }
+    
 
     if (status === 0) {
       navigate('/dashboard');
@@ -74,7 +69,7 @@ const Items = () => {
           <Timer />
           <Points />
         </Grid>
-        <Box sx={{ flexGrow: 1, marginY: '1.5rem' }}>
+        <Box sx={{ flexGrow: 1, marginBottom: '1.5rem' }}>
           <Grid container spacing={5}>
             <Grid item xs={12} md={7}>
               {option === 0 && <Menu handleOption={handleOption} />}

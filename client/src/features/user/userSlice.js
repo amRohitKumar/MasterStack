@@ -38,7 +38,6 @@ const userSlice = createSlice({
     },
     addItem: (state, {payload}) => {
       
-      console.log(payload.cost)
       if(payload.cost <= state.user.amount){
         state.user.items = [
           ...state.user.items,
@@ -51,7 +50,7 @@ const userSlice = createSlice({
         toast.success("Added Successfully", {autoClose: 500});
       }
       else{
-        toast.error("Insufficient Amount");
+        toast.error("Insufficient Amount", {autoClose: 500});
       }
     },
     removeItem: (state,{payload}) => {

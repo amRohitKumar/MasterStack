@@ -48,7 +48,7 @@ const CountDown = () => {
         Pre-Event begins in
       </Typography>
       <FlipClockCountdown
-        to={Date.parse('2022-10-16T00:00:00')}
+        to={Date.parse('2022-10-16T19:00:00')}
         labelStyle={{
           fontSize: 15,
           fontWeight: 750,

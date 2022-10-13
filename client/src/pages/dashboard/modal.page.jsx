@@ -117,12 +117,17 @@ export default function MyModal({ isModalOpen, handleClose }) {
                 The proposal and prototype should be based on the tech stacks
                 purchased so remember to choose them wisely.
               </StyledListItem>
+              <StyledListItem>
+                Start Purchase Button will be active from 7:00 PM to 11:00 PM on 16th October only. Make sure you purchase
+                in the given time slot.
+              </StyledListItem>
             </List>
             <div style={{ textAlign: 'center' }}>
               <Button
                 variant="contained"
                 onClick={handleStart}
                 style={{ fontSize: '1rem', padding: '0.7rem 1.5rem' }}
+                disabled={Date.now()<Date.parse("2022-10-16T19:00:00") || Date.now()>Date.parse("2022-10-16T23:00:00")}
               >
                 Start Purchase
               </Button>

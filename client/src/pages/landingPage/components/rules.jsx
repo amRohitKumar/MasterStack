@@ -49,7 +49,7 @@ const Rules = React.forwardRef((props, ref) => {
       <Grid container spacing={2} sx={{ margin: '2rem', textAlign: 'justify' }}>
         <Grid item md={6} xs={12}>
           <ScrollAnimation animateIn="bounceInLeft">
-            <List sx={{ listStyleType: 'disc', pr: 4 }}>
+            <List sx={{ listStyleType: 'disc', pr: 4, mr: 3 }}>
               <StyledListItem>
                 To be eligible for prizes, make sure you use the correct email
                 address of the team leader and carry proper identification.
@@ -114,7 +114,7 @@ const Rules = React.forwardRef((props, ref) => {
         </Grid>
         <Grid item md={6} xs={12}>
           <ScrollAnimation animateIn="bounceInRight">
-            <List sx={{ listStyleType: 'disc', pr: 4 }}>
+            <List sx={{ listStyleType: 'disc', pr: 4, mr: 3 }}>
               <StyledListItem>
                 All registrations need to be done on the website itself.
               </StyledListItem>
@@ -149,9 +149,9 @@ const Rules = React.forwardRef((props, ref) => {
                 use all the bought ingredients.
               </StyledListItem>
               <StyledListItem>
-                You are supposed to use only the bought ingredients ( tech stacks ) to
-                prepare your dish ( the final application ). Using any item not
-                bought by you will bring down your score/lead to
+                You are supposed to use only the bought ingredients ( tech
+                stacks ) to prepare your dish ( the final application ). Using
+                any item not bought by you will bring down your score/lead to
                 disqualification.
               </StyledListItem>
               <StyledListItem>

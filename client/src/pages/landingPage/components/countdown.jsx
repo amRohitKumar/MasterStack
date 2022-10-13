@@ -39,7 +39,7 @@ const CountDown = () => {
       <Typography
         variant="h6"
         sx={{
-          fontSize: '4rem',
+          fontSize: match ? '4rem' : '2rem',
           color: '#fff',
           fontWeight: '700',
           marginY: '1.5rem',

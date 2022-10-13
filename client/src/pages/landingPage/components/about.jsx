@@ -14,7 +14,7 @@ const About = React.forwardRef((props, ref) => {
         height: 'auto',
       }}
     >
-      <Container sx={{ padding: match ? '4rem' : '3rem' }}>
+      <Container sx={{ padding: match ? '4rem' : '1rem' }}>
         <HeadTypography
           size={match}
           styles={{ color: '#5457fa', fontSize: '3.5rem' }}

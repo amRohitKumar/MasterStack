@@ -45,7 +45,10 @@ const Dashboard = () => {
             <div>
               <HeadTypography
                 size={match}
-                styles={{ color: '#5457fa', fontSize: '3.5rem' }}
+                styles={{
+                  color: '#5457fa',
+                  fontSize: match ? '3.5rem' : '2.5rem',
+                }}
               >
                 DASHBOARD
               </HeadTypography>
@@ -53,7 +56,11 @@ const Dashboard = () => {
             </div>
 
             <h3>
-              <a href="https://t.me/MasterStack" target="_blank" rel="noreferrer">
+              <a
+                href="https://t.me/MasterStack"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Click here
               </a>{' '}
               to join the telegram group for updates/queries.
@@ -113,7 +120,10 @@ const Dashboard = () => {
             <div style={{ marginTop: '2rem' }}>
               <HeadTypography
                 size={match}
-                styles={{ color: '#5457fa', fontSize: '3.5rem' }}
+                styles={{
+                  color: '#5457fa',
+                  fontSize: match ? '3.5rem' : '2.5rem',
+                }}
               >
                 TEAM DETAILS
               </HeadTypography>

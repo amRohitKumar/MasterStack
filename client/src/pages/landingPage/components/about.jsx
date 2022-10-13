@@ -30,7 +30,7 @@ const About = React.forwardRef((props, ref) => {
               ? {
                   fontWeight: '50',
                   fontSize: '1.22rem',
-                  margin: '2rem',
+                  marginTop: '2rem',
                   textAlign: 'justify',
                 }
               : { margin: '2rem', textAlign: 'justify' }

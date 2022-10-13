@@ -112,7 +112,7 @@ const Rules = React.forwardRef((props, ref) => {
             </ScrollAnimation>
           </Grid>
         </Grid>
-        <Grid item md={6} xs={12}>
+        <Grid item md={6} xs={12} sx={{marginBottom: '1rem'}}>
           <ScrollAnimation animateIn="bounceInRight">
             <List sx={{ listStyleType: 'disc', pr: 4, mr: 3 }}>
               <StyledListItem>

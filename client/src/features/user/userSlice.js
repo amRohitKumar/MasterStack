@@ -34,7 +34,7 @@ const userSlice = createSlice({
       state.loggedIn = false;
       removeUserFromLocalStorage();
       removeTokenFromLocalStorage();
-      toast.success("Logout Successfully");
+      toast.success("Logout Successfull");
     },
     addItem: (state, {payload}) => {
       

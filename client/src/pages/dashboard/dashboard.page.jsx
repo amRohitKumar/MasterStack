@@ -119,8 +119,8 @@ const Dashboard = () => {
               <HeadTypography
                 size={match}
                 styles={{
-                  color: '#5457fa',
-                  fontSize: match ? '3.5rem' : '2.5rem',
+                  color: "#5457fa",
+                  fontSize: match ? "3.5rem" : "2.5rem",
                 }}
               >
                 DASHBOARD
@@ -183,8 +183,6 @@ const Dashboard = () => {
                         </h3>
                       </>
                     )}
-                    {/* MOVE OUT OF THIS DIV */}
-                    {/* <DashboardItems list={user.items} /> */}
                   </div>
                 )}
               </div>
@@ -200,13 +198,13 @@ const Dashboard = () => {
                 margin: "2em 0 5em 0",
               }}
             >
-              {user.status !== 1 && (
+              {user.status !== 0 && (
                 <>
                   <HeadTypography
                     size={match}
                     styles={{
                       color: "#5457fa",
-                      fontSize: match ? '3.5rem' : '2.5rem',
+                      fontSize: match ? "3.5rem" : "2.5rem",
                       textTransform: "uppercase",
                     }}
                   >
@@ -232,8 +230,8 @@ const Dashboard = () => {
               <HeadTypography
                 size={match}
                 styles={{
-                  color: '#5457fa',
-                  fontSize: match ? '3.5rem' : '2.5rem',
+                  color: "#5457fa",
+                  fontSize: match ? "3.5rem" : "2.5rem",
                 }}
               >
                 TEAM DETAILS

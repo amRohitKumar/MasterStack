@@ -1,27 +1,31 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
-import Member from './member.page';
-import { useMediaQuery } from '@mui/material';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
+import Member from "./member.page";
+import { useMediaQuery } from "@mui/material";
 
 export default function LabTabs({ members }) {
-  const [value, setValue] = React.useState('1');
+  const [value, setValue] = React.useState("1");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  var match = useMediaQuery('(min-width:800px)');
+  var match = useMediaQuery("(min-width:800px)");
 
   return (
     <Box
-      sx={{ typography: 'body1', marginY: '2rem' }}
-      style={match ? { width: '50%' } : { width: '100%' }}
+      sx={{
+        typography: "body1",
+        my: "4rem",
+        width: match ? "50%" : "100%",
+        mx: "auto",
+      }}
     >
-      <TabContext value={value} >
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+      <TabContext value={value}>
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
             <Tab label="Member 1" value="1" />
             <Tab label="Member 2" value="2" />

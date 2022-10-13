@@ -206,7 +206,7 @@ const Dashboard = () => {
                     size={match}
                     styles={{
                       color: "#5457fa",
-                      fontSize: "3.5rem",
+                      fontSize: match ? '3.5rem' : '2.5rem',
                       textTransform: "uppercase",
                     }}
                   >

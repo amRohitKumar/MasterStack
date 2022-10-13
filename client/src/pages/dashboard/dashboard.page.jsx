@@ -118,7 +118,10 @@ const Dashboard = () => {
             <div>
               <HeadTypography
                 size={match}
-                styles={{ color: "#5457fa", fontSize: "3.5rem" }}
+                styles={{
+                  color: '#5457fa',
+                  fontSize: match ? '3.5rem' : '2.5rem',
+                }}
               >
                 DASHBOARD
               </HeadTypography>
@@ -228,7 +231,10 @@ const Dashboard = () => {
             >
               <HeadTypography
                 size={match}
-                styles={{ color: "#5457fa", fontSize: "3.5rem" }}
+                styles={{
+                  color: '#5457fa',
+                  fontSize: match ? '3.5rem' : '2.5rem',
+                }}
               >
                 TEAM DETAILS
               </HeadTypography>

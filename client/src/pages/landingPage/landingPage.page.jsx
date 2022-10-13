@@ -17,9 +17,9 @@ const LandingPage = () => {
       <Header about={about} rules={rules} timeline={timeline} prizes={prizes} />
       <CountDown />
       <About ref={about} />
-      <Rules ref={rules} />
       <MyTimeLine ref={timeline} />
       <Prizes ref={prizes} />
+      <Rules ref={rules} />
     </Box>
   );
 };

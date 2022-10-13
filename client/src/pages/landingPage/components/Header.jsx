@@ -100,15 +100,8 @@ const Header = (props) => {
                 About
               </Typography>
             </MenuItem>
+
             <MenuItem key={2}>
-              <Typography
-                textAlign="center"
-                onClick={() => scrollToSection(props.rules)}
-              >
-                Rules
-              </Typography>
-            </MenuItem>
-            <MenuItem key={3}>
               <Typography
                 textAlign="center"
                 onClick={() => scrollToSection(props.timeline)}
@@ -116,12 +109,20 @@ const Header = (props) => {
                 Timeline
               </Typography>
             </MenuItem>
-            <MenuItem key={4}>
+            <MenuItem key={3}>
               <Typography
                 textAlign="center"
                 onClick={() => scrollToSection(props.prizes)}
               >
                 Prizes
+              </Typography>
+            </MenuItem>
+            <MenuItem key={4}>
+              <Typography
+                textAlign="center"
+                onClick={() => scrollToSection(props.rules)}
+              >
+                Rules
               </Typography>
             </MenuItem>
             {!loggedIn ? (
@@ -179,12 +180,6 @@ const Header = (props) => {
           </Button>
           <Button
             sx={{ color: '#000', fontSize: '1.3rem' }}
-            onClick={() => scrollToSection(props.rules)}
-          >
-            Rules
-          </Button>
-          <Button
-            sx={{ color: '#000', fontSize: '1.3rem' }}
             onClick={() => scrollToSection(props.timeline)}
           >
             Timeline
@@ -194,6 +189,12 @@ const Header = (props) => {
             onClick={() => scrollToSection(props.prizes)}
           >
             Prizes
+          </Button>
+          <Button
+            sx={{ color: '#000', fontSize: '1.3rem' }}
+            onClick={() => scrollToSection(props.rules)}
+          >
+            Rules
           </Button>
           {!loggedIn ? (
             <>

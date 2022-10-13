@@ -122,6 +122,10 @@ export default function MyModal({ isModalOpen, handleClose }) {
                 The proposal and prototype should be based on the tech stacks
                 purchased so remember to choose them wisely.
               </StyledListItem>
+              <StyledListItem>
+                It is recommended to use the desktop mode as some features may
+                not be consistent with the mobile view.
+              </StyledListItem>
             </List>
             <div style={{ textAlign: 'center' }}>
               <Button

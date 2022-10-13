@@ -126,7 +126,7 @@ const MyTimeLine = React.forwardRef((props, ref) => {
               variant="body1"
               color="text.secondary"
             >
-              Till 21 October 2022
+              Till 20 October 2022
               <Typography>11:59 PM</Typography>
             </TimelineOppositeContent>
             <TimelineSeparator>
@@ -149,7 +149,7 @@ const MyTimeLine = React.forwardRef((props, ref) => {
               variant="body1"
               color="text.secondary"
             >
-              22 October 2022
+              21 October 2022
             </TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineConnector />

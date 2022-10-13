@@ -39,10 +39,11 @@ const CountDown = () => {
       <Typography
         variant="h6"
         sx={{
-          fontSize: '2rem',
-          color: 'white',
+          fontSize: '4rem',
+          color: '#fff',
           fontWeight: '700',
           marginY: '1.5rem',
+          // textShadow: '0 0 20px white'
         }}
       >
         Pre-Event begins in

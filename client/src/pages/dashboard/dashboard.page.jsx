@@ -20,8 +20,6 @@ const Dashboard = () => {
   const user = useSelector((store) => store.user.user);
   //console.log(user);
 
-  
-
   const handleResume = (e) => {
     e.preventDefault();
     navigate('/items');
@@ -54,8 +52,15 @@ const Dashboard = () => {
               <Divider variant="middle" />
             </div>
 
+            <h3>
+              <a href="https://t.me/MasterStack" target="_blank" rel="noreferrer">
+                Click here
+              </a>{' '}
+              to join the telegram group for updates/queries.
+            </h3>
+
             <MyModal isModalOpen={isModalOpen} handleClose={handleModalClose} />
-           
+
             {user.status === 0 ? (
               <>
                 <h3>Let's begin by purchasing some ingredients!</h3>

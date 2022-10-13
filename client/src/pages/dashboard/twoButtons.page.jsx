@@ -1,20 +1,23 @@
-import React from 'react';
-import { Chip } from '@mui/material';
+import React from "react";
+import { Box, Divider } from "@mui/material";
 
 const TwoButtons = ({ first, second }) => {
   return (
-    <div style={{ margin: '10px 0px' }}>
-      <Chip
-        label={first}
-        color="primary"
-        sx={{ margin: '0px 5px', fontSize: '20px' }}
-      />
-      <Chip
-        label={second}
-        color="warning"
-        sx={{ margin: '0px 5px', fontSize: '20px' }}
-      />
-    </div>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+      }}
+    >
+      <div style={{ display: "flex", justifyContent: "space-between", fontSize: '1.35em' }}>
+        <div style={{ width: "35%", textAlign: "right", fontWeight: "bold" }}>
+          {first}
+        </div>
+        <div style={{ width: "55%" }}>{second}</div>
+      </div>
+      <Divider variant="middle" sx={{ my: "0.8rem" }} />
+    </Box>
   );
 };
 

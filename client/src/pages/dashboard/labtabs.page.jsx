@@ -20,7 +20,7 @@ export default function LabTabs({ members }) {
       sx={{ typography: 'body1', marginY: '2rem' }}
       style={match ? { width: '50%' } : { width: '100%' }}
     >
-      <TabContext value={value}>
+      <TabContext value={value} >
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
             <Tab label="Member 1" value="1" />

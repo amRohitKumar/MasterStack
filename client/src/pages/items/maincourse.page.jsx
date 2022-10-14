@@ -12,8 +12,16 @@ const create= (id, name, cost, points, parent) => {
 };
 
 const items = [
-  create('m1','Node JS',30000,5,3),
-  create('m2','React JS',30000,5,3),
+  create('m1','Pytorch',25000,25,3),
+  create('m2','Tensorflow/Keras',25000,20,3),
+  create('m3','React JS',20000,10,3),
+  create('m4','Angular JS',15000,30,3),
+  create('m5','Next JS',15000,20,3),
+  create('m6','NodeJS+Express',25000,10,3),
+  create('m7','Flutter',20000,15,3),
+  create('m8','React Native',20000,15,3),
+  create('m9','Android(Kotlin+XML)',20000,20,3),
+  create('m10','Android(Java+XML)',22500,10,3),
 ];
 
 const Maincourse = ({ handleOption }) => {

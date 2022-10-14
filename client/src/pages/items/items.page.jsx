@@ -1,9 +1,8 @@
 import { Grid } from '@mui/material';
 import Box from '@mui/material/Box';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { fetchItem } from '../../features/item/itemSlice';
 import Appetizer from './appetizer.page';
 import Dessert from './dessert.page';
 import Maincourse from './maincourse.page';
@@ -54,14 +53,14 @@ const Items = () => {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   flexDirection: 'row',
-                  marginTop: '1rem',
+                  marginBottom: '0.75rem',
                 }
               : {
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'space-between',
                   flexDirection: 'column',
-                  marginTop: '1rem',
+                  marginBottom: '0.75rem',
                 }
           }
         >

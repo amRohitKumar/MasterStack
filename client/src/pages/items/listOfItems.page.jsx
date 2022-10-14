@@ -42,7 +42,7 @@ const ListOfItems = ({ list, name, click }) => {
         <TableHead>
           <StyledTableRow>
             <StyledTableCell align="left" colSpan={2} style={{ fontSize: '1.5rem' }}>
-              {name}
+              <b>{name}</b>
             </StyledTableCell>
             <StyledTableCell align="right" colSpan={2} style={{ fontSize: '1.5rem' }}>
               <Button variant="contained" onClick={() => click(0)}>
@@ -50,11 +50,11 @@ const ListOfItems = ({ list, name, click }) => {
               </Button>
             </StyledTableCell>
           </StyledTableRow>
-          <StyledTableRow>
-            <StyledTableCell>Ingredient</StyledTableCell>
-            <StyledTableCell align="right">Cost</StyledTableCell>
-            <StyledTableCell align="right">Points</StyledTableCell>
-            <StyledTableCell align="right">Action</StyledTableCell>
+          <StyledTableRow >
+            <StyledTableCell style={{fontSize:'1.2rem'}}><b>Ingredient</b></StyledTableCell>
+            <StyledTableCell style={{fontSize:'1.2rem'}} align="right"><b>Cost</b></StyledTableCell>
+            <StyledTableCell style={{fontSize:'1.2rem'}} align="right"><b>Points</b></StyledTableCell>
+            <StyledTableCell style={{fontSize:'1.2rem'}} align="right"><b>Action</b></StyledTableCell>
           </StyledTableRow>
         </TableHead>
         <TableBody>

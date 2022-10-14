@@ -12,8 +12,8 @@ const create= (id, name, cost, points, parent) => {
 };
 
 const items = [
-  create('a1','scikitlearn',10000,5,1),
-  create('a2','pandas',7500,5,1),
+  create('a1','Scikitlearn',10000,5,1),
+  create('a2','Pandas',7500,5,1),
   create('a3','Django',20000,20,1),
   create('a4','Flask',20000,15,1),
   create('a5','GraphQL',5000,5,1),

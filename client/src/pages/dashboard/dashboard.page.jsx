@@ -67,6 +67,7 @@ const Dashboard = () => {
   var match = useMediaQuery('(min-width:600px)');
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [click,handleClick] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -80,6 +81,7 @@ const Dashboard = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    handleClick(true);
     dispatch(submitItems());
   };
 
@@ -158,6 +160,7 @@ const Dashboard = () => {
                             <Button
                               variant="contained"
                               size="large"
+                              disabled={click}
                               onClick={handleSubmit}
                             >
                               Submit

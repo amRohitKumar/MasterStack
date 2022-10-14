@@ -200,7 +200,7 @@ const Dashboard = () => {
                 margin: "2em 0 5em 0",
               }}
             >
-              {user.status !== 1 && (
+              {user.status !== 0 && (
                 <>
                   <HeadTypography
                     size={match}

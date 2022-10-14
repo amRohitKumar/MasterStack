@@ -1,13 +1,10 @@
-import axios from "axios";
+import axios from 'axios';
 const customFetch = axios.create({
-  baseURL: "/api",
+  baseURL: 'https://master-stack-backend.herokuapp.com/api',
   headers: {
-    "Access-Control-Allow-Origin": "*",
-    "Content-Type": "application/json",
+    'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'application/json',
   },
 });
-
-
-
 
 export default customFetch;

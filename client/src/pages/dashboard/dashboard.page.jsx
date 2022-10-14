@@ -1,69 +1,70 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { submitItems } from "../../features/user/userSlice";
-import { Button, useMediaQuery, Divider, Paper, Box } from "@mui/material";
-import { Container } from "@mui/system";
-import DashboardItems from "./table.page";
-import TwoButtons from "./twoButtons.page";
-import LabTabs from "./labtabs.page";
-import HeadTypography from "../landingPage/components/headTypography";
-import MyModal from "./modal.page";
-import { useState } from "react";
-import styled from "@emotion/styled";
-import WelcomeSvg from "../../assets/buy.svg";
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { submitItems } from '../../features/user/userSlice';
+import { Button, useMediaQuery, Divider, Paper, Box } from '@mui/material';
+import { Container } from '@mui/system';
+import DashboardItems from './table.page';
+import TwoButtons from './twoButtons.page';
+import LabTabs from './labtabs.page';
+import HeadTypography from '../landingPage/components/headTypography';
+import MyModal from './modal.page';
+import { useState } from 'react';
+import styled from '@emotion/styled';
+import WelcomeSvg from '../../assets/buy.svg';
 
 const WelcomeDiv = styled(Box)({
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 
-  ".leftPart": {
-    width: "50%",
+  '.leftPart': {
+    width: '50%',
   },
-  ".rightPart": {
-    width: "50%",
-    maxWidth: "550px",
-    aspectRatio: "1/1",
+  '.rightPart': {
+    width: '50%',
+    maxWidth: '550px',
+    aspectRatio: '1/1',
   },
-  ".innerText": {
-    fontSize: "4em",
-    fontStyle: "italic",
-    textShadow: "4px 2px 5px #f29cf5",
+  '.innerText': {
+    fontSize: '4em',
+    // fontStyle: "italic",
+    fontFamily: 'monospace',
+    textShadow: '4px 0px 10px #f29cf5',
   },
-  ".MuiButton-root": {
-    padding: "0.5em 2.5em",
-    fontSize: "1.2em",
-    fontWeight: "bold",
-    fontStyle: "italic",
-    width: "40%",
+  '.MuiButton-root': {
+    padding: '0.5em 2.5em',
+    fontSize: '1.2em',
+    fontWeight: 'bold',
+    fontStyle: 'italic',
+    width: '40%',
   },
-  ".contentDiv": {
-    display: "flex",
-    flexDirection: "column",
+  '.contentDiv': {
+    display: 'flex',
+    flexDirection: 'column',
   },
 
-  "@media (max-width: 950px)": {
-    ".innerText": {
-      fontSize: "3em",
+  '@media (max-width: 950px)': {
+    '.innerText': {
+      fontSize: '3em',
     },
   },
 
-  "@media (max-width: 750px)": {
-    flexDirection: "column",
-    ".leftPart": {
-      width: "100%",
+  '@media (max-width: 750px)': {
+    flexDirection: 'column',
+    '.leftPart': {
+      width: '100%',
     },
-    ".rightPart": {
-      width: "100%",
+    '.rightPart': {
+      width: '100%',
     },
-    ".MuiButton-root": {
-      margin: "0 auto",
+    '.MuiButton-root': {
+      margin: '0 auto',
     },
   },
 });
 
 const Dashboard = () => {
-  var match = useMediaQuery("(min-width:600px)");
+  var match = useMediaQuery('(min-width:600px)');
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
@@ -74,7 +75,7 @@ const Dashboard = () => {
 
   const handleResume = (e) => {
     e.preventDefault();
-    navigate("/items");
+    navigate('/items');
   };
 
   const handleSubmit = (e) => {
@@ -91,19 +92,20 @@ const Dashboard = () => {
 
   return (
     <>
-      <Container maxWidth={false} sx={{ maxWidth: "90%" }}>
+      <Container maxWidth={false} sx={{ maxWidth: '90%' }}>
         {user != null && (
           <>
             <Paper
               elevation={2}
               sx={{
-                p: "0.6em 1em",
-                textAlign: "center",
-                width: match ? "65%" : "100%",
-                mx: "auto",
-                my: 1,
-                backgroundColor: "#eaf78ac0",
-                letterSpacing: "1.1px",
+                p: '0.6em 1em',
+                textAlign: 'center',
+                width: match ? '70%' : '100%',
+                mx: 'auto',
+                my: 2,
+                backgroundColor: '#f7cb8a',
+                letterSpacing: '1.1px',
+                fontSize: '1.1rem',
               }}
             >
               <a
@@ -112,15 +114,15 @@ const Dashboard = () => {
                 rel="noreferrer"
               >
                 Click here
-              </a>{" "}
-              to join the telegram group for updates/queries.
+              </a>
+              &nbsp;to join the telegram group for updates/queries.
             </Paper>
             <div>
               <HeadTypography
                 size={match}
                 styles={{
-                  color: "#5457fa",
-                  fontSize: match ? "3.5rem" : "2.5rem",
+                  color: '#5457fa',
+                  fontSize: match ? '3.5rem' : '2.5rem',
                 }}
               >
                 DASHBOARD
@@ -192,10 +194,10 @@ const Dashboard = () => {
             </WelcomeDiv>
             <div
               style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                margin: "2em 0 5em 0",
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                margin: '2em 0 5em 0',
               }}
             >
               {user.status !== 0 && (
@@ -203,18 +205,18 @@ const Dashboard = () => {
                   <HeadTypography
                     size={match}
                     styles={{
-                      color: "#5457fa",
-                      fontSize: match ? "3.5rem" : "2.5rem",
-                      textTransform: "uppercase",
+                      color: '#5457fa',
+                      fontSize: match ? '3.5rem' : '2.5rem',
+                      textTransform: 'uppercase',
                     }}
                   >
                     {user.status === 1
-                      ? "Ingredients in Cart"
-                      : "Purchased Ingredients"}
+                      ? 'Ingredients in Cart'
+                      : 'Purchased Ingredients'}
                   </HeadTypography>
                   <Divider
                     variant="middle"
-                    style={{ marginBottom: "1.5rem", width: "100%" }}
+                    style={{ marginBottom: '1.5rem', width: '100%' }}
                   />
                   <DashboardItems list={user.items} />
                 </>
@@ -222,28 +224,28 @@ const Dashboard = () => {
             </div>
             <div
               style={{
-                display: "flex",
-                flexDirection: "column",
-                marginTop: "2rem",
+                display: 'flex',
+                flexDirection: 'column',
+                marginTop: '2rem',
               }}
             >
               <HeadTypography
                 size={match}
                 styles={{
-                  color: "#5457fa",
-                  fontSize: match ? "3.5rem" : "2.5rem",
+                  color: '#5457fa',
+                  fontSize: match ? '3.5rem' : '2.5rem',
                 }}
               >
                 TEAM DETAILS
               </HeadTypography>
-              <Divider variant="middle" style={{ marginBottom: "1.5rem" }} />
+              <Divider variant="middle" style={{ marginBottom: '1.5rem' }} />
               <Paper
                 elevation={5}
                 sx={{
-                  width: { xl: "50%", lg: "55%", md: "65%", xs: "90%" },
-                  mx: "auto",
+                  width: { xl: '50%', lg: '55%', md: '65%', xs: '90%' },
+                  mx: 'auto',
                   p: 2,
-                  fontFamily: "Consolas",
+                  fontFamily: 'Consolas',
                 }}
               >
                 <TwoButtons first="Team Name" second={user.name} />

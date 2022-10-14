@@ -18,7 +18,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 const Member = ({ member }) => {
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} >
       <Table style={{ width: '100%' }} stickyHeader aria-label="sticky table">
         <TableBody>
           <StyledTableRow

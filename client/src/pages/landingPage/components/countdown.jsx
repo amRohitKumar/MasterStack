@@ -46,10 +46,20 @@ const CountDown = () => {
           // textShadow: '0 0 20px white'
         }}
       >
-        Pre-Event begins in
+        {Date.now() < new Date('2022-10-16T19:00:00')
+          ? 'Pre-event begins in'
+          : Date.now() > new Date('2022-10-16T21:00:00')
+          ? 'Proposal submission ends in'
+          : 'PRE-EVENT IS LIVE'}
       </Typography>
       <FlipClockCountdown
-        to={Date.parse('2022-10-16T19:00:00')}
+        to={
+          Date.now() < new Date('2022-10-16T19:00:00')
+            ? Date.parse('2022-10-16T19:00:00')
+            : Date.now() > new Date('2022-10-16T21:00:00')
+            ? Date.parse('2022-10-17T23:59:59')
+            : Date.parse('2022-10-14T19:00:00')
+        }
         labelStyle={{
           fontSize: 15,
           fontWeight: 750,

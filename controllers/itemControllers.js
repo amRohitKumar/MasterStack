@@ -6,7 +6,7 @@ const start = async(req,res) => {
     try{
         const userId = req.user.userId;
         const user = await User.findById(userId);
-        if(Date.now()<Date.parse("2022-10-16T19:00:00") || Date.now()>Date.parse("2022-10-16T23:00:00")){
+        if(Date.now()<Date.parse("2022-10-16T19:00:00") || Date.now()>Date.parse("2022-10-16T21:00:00")){
             return res.status(400).send({msg:"You may only start in the given time slot"});
         }
         if(user.status!=0){
@@ -25,8 +25,9 @@ const start = async(req,res) => {
 const submit = async(req,res) => {
     try{
         const userId = req.user.userId;
+        const checkUser = await User.findById(userId);
         const userBody = req.body;
-        if(userBody.status==2){
+        if(userBody.status==2 || checkUser.status==2){
             return res.status(400).send({ msg: "You can only submit once" });
         }
         await User.updateOne({

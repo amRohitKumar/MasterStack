@@ -12,6 +12,7 @@ import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { submitItems } from '../../features/user/userSlice';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -37,11 +38,13 @@ const CurrentItems = () => {
   const items = useSelector((store) => store.user.user.items);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [click,handleClick] = useState(false);
   const handleRemove = (itemId) => {
     dispatch(removeItem(itemId));
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    handleClick(true);
     dispatch(submitItems()).then(() => {
       navigate('/dashboard');
     });
@@ -56,39 +59,23 @@ const CurrentItems = () => {
               colSpan={2}
               style={{ fontSize: '1.5rem' }}
             >
-              Cart Items
+              <b>Cart Items</b>
             </StyledTableCell>
             <StyledTableCell
               align="right"
               colSpan={2}
               style={{ fontSize: '1.5rem' }}
             >
-              <Button variant="contained" onClick={(e) => handleSubmit(e)}>
+              <Button variant="contained" disabled={click} onClick={(e) => handleSubmit(e)}>
                 Submit
               </Button>
             </StyledTableCell>
           </StyledTableRow>
-          {/* <StyledTableRow>
-            <StyledTableCell
-              align="center"
-              colSpan={2}
-              style={{ fontSize: '1.5rem' }}
-            >
-              Balance: {user.amount}
-            </StyledTableCell>
-            <StyledTableCell
-              align="center"
-              colSpan={2}
-              style={{ fontSize: '1.5rem' }}
-            >
-              Points: {user.points}
-            </StyledTableCell>
-          </StyledTableRow> */}
           <StyledTableRow>
-            <StyledTableCell>Ingredient</StyledTableCell>
-            <StyledTableCell align="right">Cost</StyledTableCell>
-            <StyledTableCell align="right">Points</StyledTableCell>
-            <StyledTableCell align="right">Action</StyledTableCell>
+            <StyledTableCell style={{fontSize:'1.2rem'}}><b>Ingredient</b></StyledTableCell>
+            <StyledTableCell style={{fontSize:'1.2rem'}} align="right"><b>Cost</b></StyledTableCell>
+            <StyledTableCell style={{fontSize:'1.2rem'}} align="right"><b>Points</b></StyledTableCell>
+            <StyledTableCell style={{fontSize:'1.2rem'}} align="right"><b>Action</b></StyledTableCell>
           </StyledTableRow>
         </TableHead>
         <TableBody>

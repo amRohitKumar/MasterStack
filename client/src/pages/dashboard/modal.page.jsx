@@ -10,6 +10,7 @@ import styled from '@emotion/styled';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { startGame } from '../../features/user/userSlice';
+import { useState } from 'react';
 
 const style = {
   position: 'absolute',
@@ -37,9 +38,10 @@ const StyledListItem = styled(ListItem)(({ theme }) => ({
 export default function MyModal({ isModalOpen, handleClose }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [click,handleClick] = useState(false);
   const handleStart = (e) => {
     e.preventDefault();
+    handleClick(true);
     dispatch(startGame()).then(() => {
       navigate('/items');
     });
@@ -114,7 +116,7 @@ export default function MyModal({ isModalOpen, handleClose }) {
                 </b>
               </StyledListItem>
               <StyledListItem>
-                The Start Purchase Button will be active from 7:00 PM to 11:00
+                The Start Purchase Button will be active from 7:00 PM to 9:00
                 PM on 16th October only. Make sure to purchase in the given time
                 slot.
               </StyledListItem>
@@ -134,7 +136,8 @@ export default function MyModal({ isModalOpen, handleClose }) {
                 style={{ fontSize: '1rem', padding: '0.7rem 1.5rem' }}
                 disabled={
                   Date.now() < Date.parse('2022-10-16T19:00:00') ||
-                  Date.now() > Date.parse('2022-10-16T23:00:00')
+                  Date.now() > Date.parse('2022-10-16T21:00:00') ||
+                  click
                 }
               >
                 Start Purchase

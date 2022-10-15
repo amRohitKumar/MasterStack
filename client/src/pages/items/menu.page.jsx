@@ -6,34 +6,34 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import appetizer from '../../assets/appetizer.jpg';
+import salad from '../../assets/fresh-salad.svg';
+import maincourse from '../../assets/main-course.jpg';
+import dessert from '../../assets/cartoon-dessert.svg';
 const list = [
   {
     id: 1,
     name: 'Appetizer',
     description: 'Start the perfect recipe with the perfect ingredient.',
-    image:
-      'https://m.economictimes.com/thumb/msid-89885004,width-1200,height-900,resizemode-4,imgsize-137412/healthy-food_think.jpg',
+    image:appetizer,
   },
   {
     id: 2,
     name: 'Salad',
     description: 'I lost some weight once, but I found it again in the fridge.',
-    image:
-      'https://m.economictimes.com/thumb/msid-89885004,width-1200,height-900,resizemode-4,imgsize-137412/healthy-food_think.jpg',
+    image: salad,
   },
   {
     id: 3,
     name: 'Main Course',
     description: 'Good food choices are good investments',
-    image:
-      'https://m.economictimes.com/thumb/msid-89885004,width-1200,height-900,resizemode-4,imgsize-137412/healthy-food_think.jpg',
+    image:maincourse,
   },
   {
     id: 4,
     name: 'Dessert',
     description: 'Stressed? Desserts will reverse it for you',
-    image:
-      'https://m.economictimes.com/thumb/msid-89885004,width-1200,height-900,resizemode-4,imgsize-137412/healthy-food_think.jpg',
+    image: dessert,
   },
 ];
 

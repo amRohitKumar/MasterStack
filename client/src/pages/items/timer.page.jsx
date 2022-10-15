@@ -9,24 +9,16 @@ import '@leenguyen/react-flip-clock-countdown/dist/index.css';
 const SECOND = 1000;
 const MINUTE = SECOND * 60;
 const HOUR = MINUTE * 60;
-const DAY = HOUR * 24;
+//const DAY = HOUR * 24;
 
 export const Timer = () => {
   const parsedDeadline = Date.parse(
     useSelector((store) => store.user.user.endsAt)
   );
-  // const [counter, setCounter] = useState(25);
-  // const [isActive, setIsActive] = useState(true);
   const [time, setTime] = useState(parsedDeadline - Date.now());
   const navigate = useNavigate();
   useEffect(() => {
-    // if (isActive) {
-    //   const timer =
-    //     counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
-    //   return () => clearInterval(timer);
-    // } else if (!isActive && counter !== 0) {
-    //   clearInterval(counter);
-    // }
+  
     const interval = setInterval(
       () => setTime(parsedDeadline - Date.now()),
       1000
@@ -39,21 +31,8 @@ export const Timer = () => {
     return () => clearInterval(interval);
   }, [parsedDeadline, time]);
 
-  // const renderTime = ({ remainingTime }) => {
-  //   if ({ remainingTime } === 0) {
-  //     return <div className="timer">Time's Up!...</div>;
-  //   }
-
-  //   return (
-  //     <div className="timer">
-  //       <div className="text">Time</div>
-  //       <div className="value">{counter}</div>
-  //       <div className="text">seconds</div>
-  //     </div>
-  //   );
-  // };
   return (
-    <div className="timer" style={{fontSize:"2rem", fontFamily:'consolas'}}>
+    <div className="timer" style={{fontSize:"2.5rem", fontFamily:'consolas', backgroundColor: 'black', color: 'white', padding: '0.25rem 1.2rem', borderRadius: '1rem'}}>
       <b>
       <span>
         {`${Math.floor((time / MINUTE) % 60)}`.padStart(2, "0")}

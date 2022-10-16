@@ -20,7 +20,7 @@ const items = [
   create('a6','Firebase',10000,10,1),
   create('a7','Jetpack Compose',10000,25,1),
   create('a8','Room Database',7500,5,1),
-  create('a9','SQFlite',7500,5,1),
+  create('a9','SQFlite (Flutter)',7500,5,1),
 ];
 
 const Appetizer = ({ handleOption }) => {

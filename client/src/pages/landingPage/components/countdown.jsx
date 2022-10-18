@@ -47,7 +47,7 @@ const CountDown = () => {
           // textShadow: '0 0 20px white'
         }}
       >
-        All future updates will be posted on our Telegrap Group.
+        All future updates will be posted on our Telegram Group.
       </Typography>
       <Typography
         variant="caption"

@@ -204,12 +204,12 @@ const Header = (props) => {
               >
                 Login
               </Button>
-              <Button
+              {/* <Button
                 sx={{ color: '#000', fontSize: '1.3rem' }}
                 onClick={() => navigate('register')}
               >
                 Register
-              </Button>
+              </Button> */}
             </>
           ) : (
             <>

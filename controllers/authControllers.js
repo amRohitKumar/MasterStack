@@ -3,6 +3,9 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
 const register = async (req, res) => {
+  // DEADLINE IS OVER
+  return res.status(400).send({msg: "Registration is over !"})
+
   try {
     const { teamName, password, clgName, sponsors, members } = req.body;
     const emailArr = members.map((member) => member.email);

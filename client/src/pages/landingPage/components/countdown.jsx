@@ -39,20 +39,31 @@ const CountDown = () => {
       <Typography
         variant="h6"
         sx={{
-          fontSize: match ? '4rem' : '2rem',
+          fontSize: match ? '3rem' : '1.75rem',
           color: '#fff',
           fontWeight: '700',
           marginY: '1.5rem',
+          m: 2,
           // textShadow: '0 0 20px white'
         }}
       >
-        {Date.now() < new Date('2022-10-16T19:00:00')
-          ? 'Pre-event begins in'
-          : Date.now() > new Date('2022-10-16T21:00:00')
-          ? 'Proposal submission ends in'
-          : 'PRE-EVENT IS LIVE'}
+        All future updates will be posted on our Telegrap Group.
       </Typography>
-      <FlipClockCountdown
+      <Typography
+        variant="caption"
+        display="block"
+        sx={{
+          fontSize: match ? '2em' : '1.25rem',
+          color: '#fff',
+          fontWeight: '700',
+          marginY: '1.5rem',
+          m: 2,
+        }}
+      >
+        (LINK IN DASHBOARD)
+      </Typography>
+      
+      {/* <FlipClockCountdown
         to={
           Date.now() < new Date('2022-10-16T19:00:00')
             ? Date.parse('2022-10-16T19:00:00')
@@ -76,7 +87,7 @@ const CountDown = () => {
               }
             : ''
         }
-      />
+      /> */}
       <Box
         sx={{
           padding: '1rem',
@@ -85,7 +96,7 @@ const CountDown = () => {
       >
         {!loggedIn ? (
           <>
-            <Button
+            {/* <Button
               variant="contained"
               sx={{
                 backgroundColor: '#000',
@@ -99,7 +110,7 @@ const CountDown = () => {
               onClick={() => navigate('register')}
             >
               Register
-            </Button>
+            </Button> */}
             <Button
               sx={{
                 backgroundColor: '#8D9EF4',

@@ -27,6 +27,7 @@ import {
   DesignServicesIcon
 } from "../../icons/icons";
 
+
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();

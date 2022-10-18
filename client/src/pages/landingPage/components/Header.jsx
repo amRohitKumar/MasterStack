@@ -135,14 +135,14 @@ const Header = (props) => {
                     Login
                   </Typography>
                 </MenuItem>
-                <MenuItem key={6}>
+                {/* <MenuItem key={6}>
                   <Typography
                     textAlign="center"
                     onClick={() => navigate('register')}
                   >
                     Register
                   </Typography>
-                </MenuItem>
+                </MenuItem> */}
               </>
             ) : (
               <>
